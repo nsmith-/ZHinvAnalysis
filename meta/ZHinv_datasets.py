@@ -4,71 +4,88 @@
 ZHinv_datasets = {
     # W + Jets MC samples
     "W1JetsToLNu_TuneZ2Star_8TeV-madgraph": {
-        "name": "/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
+        "name": "/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM",
+        "plotgroup" : "WToLNu"
     }, 
     "W2JetsToLNu_TuneZ2Star_8TeV-madgraph": {
-        "name": "/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
+        "name": "/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM",
+        "plotgroup" : "WToLNu"
     }, 
     "W3JetsToLNu_TuneZ2Star_8TeV-madgraph": {
-        "name": "/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
+        "name": "/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM",
+        "plotgroup" : "WToLNu"
     }, 
     "W4JetsToLNu_TuneZ2Star_8TeV-madgraph": {
-        "name": "/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "WToLNu"
     }, 
 
     # WGamma
     "WGToLNuG_TuneZ2star_8TeV-madgraph-tauola": {
-        "name": "/WGToLNuG_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/WGToLNuG_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "WToLNu"
     }, 
 
     # Z -> LL samples (large!)
     "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball": {
-        "name": "/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "ZToLL"
     },
     "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
-        "name": "/DYJetsToLL_M-10To50filter_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/DYJetsToLL_M-10To50filter_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "ZToLL"
     }, 
     "ZG_Inclusive_8TeV-madgraph": {
-        "name": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "ZToLL"
     }, 
 
     # double top
     "TTJets_FullLeptMGDecays_8TeV-madgraph-tauola": {
-        "name": "/TTJets_FullLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v2/AODSIM"
+        "name": "/TTJets_FullLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v2/AODSIM",
+        "plotgroup" : "ttbar"
     }, 
     "TTWJets_8TeV-madgraph": {
-        "name": "/TTWJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/TTWJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "ttbar"
     }, 
     "TTZJets_8TeV-madgraph_v2": {
-        "name": "/TTZJets_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/TTZJets_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "ttbar"
     }, 
 
     # single top 
     "T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola": {
-        "name": "/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "singleTop"
     }, 
 
     # single anti-top
     "Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola": {
-        "name": "/Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "singleTop"
     }, 
 
     # VV backgrounds
     "WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola": {
-        "name": "/WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "WW"
     }, 
     "WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola": {
-        "name": "/WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+        "name": "/WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "WZ"
     }, 
 
     # Irred. background
     "ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola": {
-        "name": "/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v3/AODSIM"
+        "name": "/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v3/AODSIM",
+        "plotgroup" : "ZZ"
     }, 
 
     # Signal
     "ZH_ZToLL_HToInv_M-125_8TeV-pythia6": {
         "name": "/ZH_ZToLL_HToInv_M-125_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "plotgroup" : "signal",
         "flags": ['signal']
     } 
 }
@@ -98,6 +115,7 @@ for PD in primaryDatasets :
   }
   for info in dataset.itervalues() :
     info['type'] = "data"
+    info['plotgroup'] = "data"
   ZHinv_datasets.update(dataset)
 
 if __name__ == "__main__" :
