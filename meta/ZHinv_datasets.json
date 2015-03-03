@@ -1,0 +1,805 @@
+{
+    "W3JetsToLNu_TuneZ2Star_8TeV-madgraph": {
+        "matching_pat": {
+            "Wplus3Jets_madgraph_v2": {
+                "datadef": {
+                    "analyses": [
+                        "HTT"
+                    ], 
+                    "x_sec": 640.39999999999998, 
+                    "calibrationTarget": "Summer12", 
+                    "datasetpath": "/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM", 
+                    "pu": "S7"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "738a38d", 
+                            "creator": "tperry", 
+                            "jobid": "Fall2014PATTuples_V1", 
+                            "production date": "Mon Nov 17 12:08:27 2014", 
+                            "source": "/afs/hep.wisc.edu/cms/tperry/FSA_slc6_472_CMSSW_5_3_23/src/FinalStateAnalysis/PatTools/test/jsons/Fall_v1_W3Jet_v19.json", 
+                            "PAT Location": "/hdfs/store/user/tperry/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1", 
+                            "DBS Name": "/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/tperry/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
+    }, 
+    "DoubleElectron_Run2012C": {
+        "matching_pat": {
+            "data_DoubleElectron_Run2012C_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 203742, 
+                    "firstRun": 198022, 
+                    "datasetpath": "/DoubleElectron/Run2012C-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "VH", 
+                        "4L", 
+                        "HZG"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/belknap/DoubleElectron/Run2012C-22Jan2013-v1/AOD/Spring2014PATTuples_V2"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/DoubleElectron/Run2012C-22Jan2013-v1/AOD"
+    }, 
+    "W4JetsToLNu_TuneZ2Star_8TeV-madgraph": {
+        "matching_pat": {
+            "Wplus4Jets_madgraph": {
+                "datadef": {
+                    "analyses": [
+                        "HTT"
+                    ], 
+                    "x_sec": 264.0, 
+                    "calibrationTarget": "Summer12", 
+                    "datasetpath": "/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S7"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "738a38d", 
+                            "creator": "tperry", 
+                            "jobid": "Fall2014PATTuples_V1", 
+                            "production date": "Mon Nov 17 12:09:02 2014", 
+                            "source": "/afs/hep.wisc.edu/cms/tperry/FSA_slc6_472_CMSSW_5_3_23/src/FinalStateAnalysis/PatTools/test/jsons/Fall_v1_W4Jet.json", 
+                            "PAT Location": "/hdfs/store/user/tperry/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATTuples_V1", 
+                            "DBS Name": "/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/tperry/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATTuples_V1"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "ZH_ZToLL_HToInv_M-125_8TeV-pythia6": {
+        "type": "mc", 
+        "matching_pat": {
+            "ZH_ZToLL_HToInv_M-125": {
+                "datadef": {
+                    "analyses": [
+                        ""
+                    ], 
+                    "xsec": 0.039800000000000002, 
+                    "calibrationTarget": "Summer12", 
+                    "datasetpath": "/ZH_ZToLL_HToInv_M-125_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "bf42a1b", 
+                            "creator": "nsmith", 
+                            "jobid": "ZHinv2015", 
+                            "production date": "Wed Feb  4 20:25:56 2015", 
+                            "source": "/afs/hep.wisc.edu/cms/nsmith/CMSSW_5_3_14/src/FinalStateAnalysis/PatTools/test/2e764e40d0a03a01e2fed864a832bfde.json", 
+                            "PAT Location": "/hdfs/store/user/nsmith/ZH_ZToLL_HToInv_M-125_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015", 
+                            "DBS Name": "/ZH_ZToLL_HToInv_M-125_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/nsmith/ZH_ZToLL_HToInv_M-125_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015"
+                    }
+                ]
+            }
+        }, 
+        "flags": [
+            "signal"
+        ], 
+        "name": "/ZH_ZToLL_HToInv_M-125_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball": {
+        "matching_pat": {
+            "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball": {
+                "datadef": {
+                    "analyses": [
+                        "HTT", 
+                        "HZG"
+                    ], 
+                    "x_sec": 3503.71, 
+                    "calibrationTarget": "Summer12_DR53X_HCP2012", 
+                    "datasetpath": "/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "738a38d", 
+                            "creator": "dntaylor", 
+                            "jobid": "Fall2014PATTuples_V1", 
+                            "production date": "Tue Nov 18 02:36:48 2014", 
+                            "source": "/afs/hep.wisc.edu/cms/dntaylor/Fall2014PATTuples_V1/CMSSW_5_3_14/src/FinalStateAnalysis/PatTools/test/0a5f5ee7f5613257d6646d1a92acf81e.json", 
+                            "PAT Location": "/hdfs/store/user/dntaylor/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATTuples_V1", 
+                            "DBS Name": "/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/dntaylor/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATTuples_V1"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "DoubleMu_Run2012A": {
+        "matching_pat": {
+            "data_DoubleMu_Run2012A_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 193621, 
+                    "firstRun": 190456, 
+                    "datasetpath": "/DoubleMu/Run2012A-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "VH", 
+                        "Mu", 
+                        "4L", 
+                        "HZG"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/belknap/DoubleMu/Run2012A-22Jan2013-v1/AOD/Spring2014PATTuples_V2"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/DoubleMu/Run2012A-22Jan2013-v1/AOD"
+    }, 
+    "T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola": {
+        "matching_pat": {
+            "T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola": {
+                "datadef": {
+                    "analyses": [
+                        "HTT"
+                    ], 
+                    "x_sec": 11.1, 
+                    "calibrationTarget": "Summer12_DR53X_HCP2012", 
+                    "datasetpath": "/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/mcepeda/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Spring2014PATTuples2"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/T_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "TTZJets_8TeV-madgraph_v2": {
+        "matching_pat": {
+            "TTZJets": {
+                "datadef": {
+                    "analyses": [], 
+                    "x_sec": 0.23200000000000001, 
+                    "calibrationTarget": "Summer12", 
+                    "datasetpath": "/TTZJets_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/dntaylor/TTZJets_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATTuples_V1"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/TTZJets_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
+        "matching_pat": {
+            "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
+                "datadef": {
+                    "analyses": [
+                        "ZZ"
+                    ], 
+                    "x_sec": 915.0, 
+                    "calibrationTarget": "Summer12_DR53X_HCP2012", 
+                    "datasetpath": "/DYJetsToLL_M-10To50filter_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "bf42a1b", 
+                            "creator": "nsmith", 
+                            "jobid": "ZHinv2015", 
+                            "production date": "Wed Feb  4 20:57:56 2015", 
+                            "source": "/afs/hep.wisc.edu/cms/nsmith/CMSSW_5_3_14/src/FinalStateAnalysis/PatTools/test/5c64cf9d28f72ca75956b3b9ce0d9f22.json", 
+                            "PAT Location": "/hdfs/store/user/nsmith/DYJetsToLL_M-10To50filter_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015", 
+                            "DBS Name": "/DYJetsToLL_M-10To50filter_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/nsmith/DYJetsToLL_M-10To50filter_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/DYJetsToLL_M-10To50filter_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola": {
+        "matching_pat": {
+            "WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola": {
+                "datadef": {
+                    "analyses": [
+                        "HTT"
+                    ], 
+                    "x_sec": -999, 
+                    "calibrationTarget": "Summer12_DR53X_HCP2012", 
+                    "datasetpath": "/WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "648b266", 
+                            "creator": "aglevine", 
+                            "jobid": "Fall2014PATuples_V1", 
+                            "production date": "Tue Nov 18 09:22:20 2014", 
+                            "source": "/afs/hep.wisc.edu/cms/aglevine/FinalStateAnalysis_SLC6/CMSSW_5_3_14/src/FinalStateAnalysis/PatTools/test/f022a28cf2bd1192b5bb6f5ca6c6038d.json", 
+                            "PAT Location": "/hdfs/store/user/aglevine/WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATuples_V1", 
+                            "DBS Name": "/WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/aglevine/WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATuples_V1"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "DoubleMuParked_Run2012D": {
+        "matching_pat": {
+            "data_DoubleMuParked_Run2012D_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 208686, 
+                    "firstRun": 203768, 
+                    "datasetpath": "/DoubleMuParked/Run2012D-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "VH", 
+                        "Mu", 
+                        "4L", 
+                        "HZG"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/belknap/DoubleMuParked/Run2012D-22Jan2013-v1/AOD/Spring2014PATTuples_V2"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/DoubleMuParked/Run2012D-22Jan2013-v1/AOD"
+    }, 
+    "W2JetsToLNu_TuneZ2Star_8TeV-madgraph": {
+        "matching_pat": {
+            "Wplus2Jets_madgraph_tapas": {
+                "datadef": {
+                    "analyses": [
+                        "HTT"
+                    ], 
+                    "x_sec": 2159.1999999999998, 
+                    "calibrationTarget": "Summer12", 
+                    "datasetpath": "/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "738a38d", 
+                            "creator": "tperry", 
+                            "jobid": "Fall2014PATTuples_V1", 
+                            "production date": "Mon Nov 17 12:07:06 2014", 
+                            "source": "/afs/hep.wisc.edu/cms/tperry/FSA_slc6_472_CMSSW_5_3_23/src/FinalStateAnalysis/PatTools/test/jsons/Fall_v1_W2Jet_v19.json", 
+                            "PAT Location": "/hdfs/store/user/tperry/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1", 
+                            "DBS Name": "/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/tperry/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
+    }, 
+    "ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola": {
+        "matching_pat": {
+            "ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola": {
+                "datadef": {
+                    "analyses": [
+                        "HTT"
+                    ], 
+                    "x_sec": -999, 
+                    "calibrationTarget": "Summer12_DR53X_HCP2012", 
+                    "datasetpath": "/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v3/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "UNKNOWN", 
+                            "creator": "nsmith", 
+                            "jobid": "ZHinv2015", 
+                            "production date": "Tue Feb  3 20:05:01 2015", 
+                            "source": "/afs/hep.wisc.edu/cms/nsmith/CMSSW_5_3_14/src/FinalStateAnalysis/PatTools/test/7baf15fec4354a7831c2684179bb9044.json", 
+                            "PAT Location": "/hdfs/store/user/nsmith/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v3/AODSIM/ZHinv2015", 
+                            "DBS Name": "/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v3/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/nsmith/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v3/AODSIM/ZHinv2015"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v3/AODSIM"
+    }, 
+    "WGToLNuG_TuneZ2star_8TeV-madgraph-tauola": {
+        "matching_pat": {
+            "WGToLNuG": {
+                "datadef": {
+                    "analyses": [
+                        ""
+                    ], 
+                    "xsec": 461.60000000000002, 
+                    "calibrationTarget": "Summer12", 
+                    "datasetpath": "/WGToLNuG_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "bf42a1b", 
+                            "creator": "nsmith", 
+                            "jobid": "ZHinv2015", 
+                            "production date": "Wed Feb  4 21:20:45 2015", 
+                            "source": "/afs/hep.wisc.edu/cms/nsmith/CMSSW_5_3_14/src/FinalStateAnalysis/PatTools/test/47db27ef22991c0b428ad65324c4e4ac.json", 
+                            "PAT Location": "/hdfs/store/user/nsmith/WGToLNuG_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015", 
+                            "DBS Name": "/WGToLNuG_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/nsmith/WGToLNuG_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/WGToLNuG_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "TTWJets_8TeV-madgraph": {
+        "matching_pat": {
+            "TTWJets": {
+                "datadef": {
+                    "analyses": [], 
+                    "x_sec": 0.20569999999999999, 
+                    "calibrationTarget": "Summer12", 
+                    "datasetpath": "/TTWJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/dntaylor/TTWJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATTuples_V1"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/TTWJets_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "ZG_Inclusive_8TeV-madgraph": {
+        "matching_pat": {
+            "ZG_Inclusive": {
+                "datadef": {
+                    "analyses": [
+                        ""
+                    ], 
+                    "xsec": 123.90000000000001, 
+                    "calibrationTarget": "Summer12", 
+                    "datasetpath": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "bf42a1b", 
+                            "creator": "nsmith", 
+                            "jobid": "ZHinv2015", 
+                            "production date": "Wed Feb  4 21:05:50 2015", 
+                            "source": "/afs/hep.wisc.edu/cms/nsmith/CMSSW_5_3_14/src/FinalStateAnalysis/PatTools/test/4838d2f4b56e4bdeb77d1391e9839891.json", 
+                            "PAT Location": "/hdfs/store/user/nsmith/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015", 
+                            "DBS Name": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/nsmith/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola": {
+        "matching_pat": {
+            "WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola": {
+                "datadef": {
+                    "analyses": [
+                        "HTT"
+                    ], 
+                    "x_sec": -999, 
+                    "calibrationTarget": "Summer12_DR53X_HCP2012", 
+                    "datasetpath": "/WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "648b266", 
+                            "creator": "aglevine", 
+                            "jobid": "Fall2014PATuples_V1", 
+                            "production date": "Tue Nov 18 10:33:27 2014", 
+                            "source": "/afs/hep.wisc.edu/cms/aglevine/FinalStateAnalysis_SLC6/CMSSW_5_3_14/src/FinalStateAnalysis/PatTools/test/835ff2415461ea12ce582e5fb365a9dc.json", 
+                            "PAT Location": "/hdfs/store/user/aglevine/WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATuples_V1", 
+                            "DBS Name": "/WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/aglevine/WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATuples_V1"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "TTJets_FullLeptMGDecays_8TeV-madgraph-tauola": {
+        "matching_pat": {
+            "TTJetsFullLepMGDecays": {
+                "datadef": {
+                    "analyses": [
+                        "ET"
+                    ], 
+                    "x_sec": -999, 
+                    "calibrationTarget": "Summer12_DR53X", 
+                    "datasetpath": "/TTJets_FullLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v2/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/mcepeda/TTJets_FullLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v2/AODSIM/Spring2014PATTuples"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/TTJets_FullLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v2/AODSIM"
+    }, 
+    "SingleMu_Run2012A": {
+        "matching_pat": {
+            "data_SingleMu_Run2012A_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 193621, 
+                    "firstRun": 190456, 
+                    "datasetpath": "/SingleMu/Run2012A-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "Tau", 
+                        "Mu", 
+                        "Wbb"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/tperry/SingleMu/Run2012A-22Jan2013-v1/AOD/Spring2014PATTuples_v3"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/SingleMu/Run2012A-22Jan2013-v1/AOD"
+    }, 
+    "SingleMu_Run2012B": {
+        "matching_pat": {
+            "data_SingleMu_Run2012B_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 196531, 
+                    "firstRun": 193833, 
+                    "datasetpath": "/SingleMu/Run2012B-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "Tau", 
+                        "Mu", 
+                        "Wbb"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/tperry/SingleMu/Run2012B-22Jan2013-v1/AOD/Spring2014PATTuples_v3"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/SingleMu/Run2012B-22Jan2013-v1/AOD"
+    }, 
+    "SingleMu_Run2012C": {
+        "matching_pat": {
+            "data_SingleMu_Run2012C_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 203742, 
+                    "firstRun": 198022, 
+                    "datasetpath": "/SingleMu/Run2012C-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "Tau", 
+                        "Mu", 
+                        "Wbb"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/tperry/SingleMu/Run2012C-22Jan2013-v1/AOD/Spring2014PATTuples_v3"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/SingleMu/Run2012C-22Jan2013-v1/AOD"
+    }, 
+    "SingleMu_Run2012D": {
+        "matching_pat": {
+            "data_SingleMu_Run2012D_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 208686, 
+                    "firstRun": 203768, 
+                    "datasetpath": "/SingleMu/Run2012D-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "Tau", 
+                        "Mu", 
+                        "Wbb"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/tperry/SingleMu/Run2012D-22Jan2013-v1/AOD/Spring2014PATTuples_v3"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/SingleMu/Run2012D-22Jan2013-v1/AOD"
+    }, 
+    "W1JetsToLNu_TuneZ2Star_8TeV-madgraph": {
+        "matching_pat": {
+            "Wplus1Jets_madgraph_tapas": {
+                "datadef": {
+                    "analyses": [
+                        "ET"
+                    ], 
+                    "x_sec": 6662.8000000000002, 
+                    "calibrationTarget": "Summer12", 
+                    "datasetpath": "/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "738a38d", 
+                            "creator": "tperry", 
+                            "jobid": "Fall2014PATTuples_V1", 
+                            "production date": "Mon Nov 17 12:06:06 2014", 
+                            "source": "/afs/hep.wisc.edu/cms/tperry/FSA_slc6_472_CMSSW_5_3_23/src/FinalStateAnalysis/PatTools/test/jsons/Fall_v1_W1Jet_v19.json", 
+                            "PAT Location": "/hdfs/store/user/tperry/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1", 
+                            "DBS Name": "/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
+                        }, 
+                        "dir": "/hdfs/store/user/tperry/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
+    }, 
+    "Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola": {
+        "matching_pat": {
+            "Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola": {
+                "datadef": {
+                    "analyses": [
+                        "HTT"
+                    ], 
+                    "x_sec": 11.1, 
+                    "datasetpath": "/Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
+                    "pu": "S10"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/mcepeda/Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Spring2014PATTuples2"
+                    }
+                ]
+            }
+        }, 
+        "type": "mc", 
+        "name": "/Tbar_tW-channel-DR_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
+    "DoubleElectron_Run2012B": {
+        "matching_pat": {
+            "data_DoubleElectron_Run2012B_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 196531, 
+                    "firstRun": 193833, 
+                    "datasetpath": "/DoubleElectron/Run2012B-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "VH", 
+                        "4L", 
+                        "HZG"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/belknap/DoubleElectron/Run2012B-22Jan2013-v1/AOD/Spring2014PATTuples_V2"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/DoubleElectron/Run2012B-22Jan2013-v1/AOD"
+    }, 
+    "DoubleElectron_Run2012A": {
+        "matching_pat": {
+            "data_DoubleElectron_Run2012A_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 193621, 
+                    "firstRun": 190456, 
+                    "datasetpath": "/DoubleElectron/Run2012A-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "VH", 
+                        "4L", 
+                        "HZG"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/belknap/DoubleElectron/Run2012A-22Jan2013-v1/AOD/Spring2014PATTuples_V2"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/DoubleElectron/Run2012A-22Jan2013-v1/AOD"
+    }, 
+    "DoubleMuParked_Run2012B": {
+        "matching_pat": {
+            "data_DoubleMuParked_Run2012B_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 196531, 
+                    "firstRun": 193833, 
+                    "datasetpath": "/DoubleMuParked/Run2012B-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "VH", 
+                        "Mu", 
+                        "4L", 
+                        "HZG"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "fe3a2b3", 
+                            "creator": "belknap", 
+                            "jobid": "Spring2014PATTuples_V2", 
+                            "production date": "Mon Apr 28 09:38:27 2014", 
+                            "source": "/afs/hep.wisc.edu/cms/belknap/fsa5314_2/src/FinalStateAnalysis/PatTools/test/82917dc95c3b2dd449fc02b8004dfb72.json", 
+                            "PAT Location": "/hdfs/store/user/belknap/DoubleMuParked/Run2012B-22Jan2013-v1/AOD/Spring2014PATTuples_V2", 
+                            "DBS Name": "/DoubleMuParked/Run2012B-22Jan2013-v1/AOD"
+                        }, 
+                        "dir": "/hdfs/store/user/belknap/DoubleMuParked/Run2012B-22Jan2013-v1/AOD/Spring2014PATTuples_V2"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/DoubleMuParked/Run2012B-22Jan2013-v1/AOD"
+    }, 
+    "DoubleMuParked_Run2012C": {
+        "matching_pat": {
+            "data_DoubleMuParked_Run2012C_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 203742, 
+                    "firstRun": 198022, 
+                    "datasetpath": "/DoubleMuParked/Run2012C-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "VH", 
+                        "Mu", 
+                        "4L", 
+                        "HZG"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/belknap/DoubleMuParked/Run2012C-22Jan2013-v1/AOD/Spring2014PATTuples_V2"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/DoubleMuParked/Run2012C-22Jan2013-v1/AOD"
+    }, 
+    "DoubleElectron_Run2012D": {
+        "matching_pat": {
+            "data_DoubleElectron_Run2012D_22Jan2013_v1": {
+                "datadef": {
+                    "lastRun": 208686, 
+                    "firstRun": 203768, 
+                    "datasetpath": "/DoubleElectron/Run2012D-22Jan2013-v1/AOD", 
+                    "lumi_mask": "FinalStateAnalysis/RecoTools/data/masks/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt", 
+                    "analyses": [
+                        "VH", 
+                        "4L", 
+                        "HZG"
+                    ], 
+                    "calibrationTarget": "Moriond2013"
+                }, 
+                "locations": [
+                    {
+                        "possible PAT config": {
+                            "FSA Version": "fe3a2b3", 
+                            "creator": "belknap", 
+                            "jobid": "Spring2014PATTuples_V2", 
+                            "production date": "Mon Apr 28 09:10:58 2014", 
+                            "source": "/afs/hep.wisc.edu/cms/belknap/fsa5314_2/src/FinalStateAnalysis/PatTools/test/260a5416a7b82f26cea9e4bbf0aff2fb.json", 
+                            "PAT Location": "/hdfs/store/user/belknap/DoubleElectron/Run2012D-22Jan2013-v1/AOD/Spring2014PATTuples_V2", 
+                            "DBS Name": "/DoubleElectron/Run2012D-22Jan2013-v1/AOD"
+                        }, 
+                        "dir": "/hdfs/store/user/belknap/DoubleElectron/Run2012D-22Jan2013-v1/AOD/Spring2014PATTuples_V2"
+                    }
+                ]
+            }
+        }, 
+        "type": "data", 
+        "name": "/DoubleElectron/Run2012D-22Jan2013-v1/AOD"
+    }
+}
