@@ -14,6 +14,12 @@ def stackUp(**kwargs) :
     trees
     variable
     cut
+    ymin
+    ymax
+    logY
+    xtitle
+    ytitle
+    (this is more a log of things that need input validation later)
   '''
   name = kwargs['name']
   directory = ROOT.TDirectory(name+"_dir", "Helps with TTree::Draw")
@@ -33,6 +39,8 @@ def stackUp(**kwargs) :
     return h
 
   for dataname, info in ZHinv_datasets.iteritems() :
+    if dataname not in kwargs['trees'] :
+      continue
     plotgroup = info['plotgroup']
     h = findGroupHist(plotgroup)
     hname = h.GetName()
@@ -45,8 +53,10 @@ def stackUp(**kwargs) :
       todraw[h] = ""
 
   for group in stack_order:
-    print 'stacking '+group
     h = tostack[group]
+    # Hack until I get a better legend builder
+    h.SetLineColor(h.GetFillColor())
+    h.SetMarkerColor(h.GetFillColor())
     h.SetDirectory(0)
     mcStack.Add(h)
   mcStack.Draw()
@@ -76,6 +86,9 @@ def stackUp(**kwargs) :
 
 files = {}
 for name, info in ZHinv_datasets.iteritems() :
+  # No data for now
+  if ZHinv_datasets[name]['type'] == 'data' :
+    continue
   tuplename = info['matching_pat'].keys()[0]
   f = ROOT.TFile("datasets/"+tuplename+".root")
   files[name] = f
@@ -107,7 +120,7 @@ c = stackUp(name="diLeptonMass",
     variable="Mass",
     logY=True,
     ymin=1e-3,
-    ymax=1e4,
+    ymax=1e5,
     xtitle="M_{ll} [GeV]",
     ytitle="Events / 1 GeV")
 c.Print("plots/diLeptonMass.png")
