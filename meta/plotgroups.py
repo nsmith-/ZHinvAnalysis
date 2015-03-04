@@ -3,31 +3,31 @@ import ROOT
 
 plotgroups = {
     'WToLNu': {
-        'title' : "W#to#ell#nu",
+        'title' : "W#rightarrowl#nu",
         'histOptions' : {
             'FillColor': ROOT.kYellow
         }
     },
     'ZToLL': {
-        'title' : "Z#to#ell#ell",
+        'title' : "Z#rightarrowll",
         'histOptions' : {
             'FillColor': ROOT.kCyan
         }
     },
     'WW': {
-        'title' : "WW#to2#ell2#nu",
+        'title' : "WW#rightarrow2l2#nu",
         'histOptions' : {
             'FillColor': ROOT.kYellow-2
         }
     },
     'WZ': {
-        'title' : "WZ#to3#ell#nu",
+        'title' : "WZ#rightarrow3l#nu",
         'histOptions' : {
              'FillColor': ROOT.kBlue
         }
     },
     'ZZ': {
-        'title' : "ZZ#to2#ell2#nu",
+        'title' : "ZZ#rightarrow2l2#nu",
         'histOptions' : {
              'FillColor': ROOT.kGreen
         }
@@ -39,9 +39,10 @@ plotgroups = {
         }
     },
     'signal': {
-        'title' : "Z(#ell#ell)H(inv)",
+        'title' : "Z(ll)H(inv)",
         'histOptions' : {
-             'LineColor' : ROOT.kRed
+             'LineColor' : ROOT.kRed,
+             'LineWidth' : 2
         }
     },
     'singleTop': {
@@ -58,3 +59,12 @@ plotgroups = {
     }
 }
 
+stack_order = [
+    'ZZ',
+    'WW',
+    'WZ',
+    'ttbar',
+    'singleTop',
+    'WToLNu',
+    'ZToLL'
+]
