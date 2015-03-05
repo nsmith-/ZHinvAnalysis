@@ -1,5 +1,5 @@
 #!/bin/env python
-import json, os
+import json, os, subprocess
 
 # MC DAS paths, referenced by primary dataset name
 ZHinv_datasets = {
@@ -136,16 +136,33 @@ for PD in primaryDatasets :
     info['plotgroup'] = "data"
   ZHinv_datasets.update(dataset)
 
+def getDBSInfo(das_path) :
+  query = 'summary dataset=%s' % das_path
+  cmd = ['das_client.py',
+      '--format=json',
+      '--query="%s"' % query]
+  output = subprocess.Popen(" ".join(cmd), shell=True, stdout=subprocess.PIPE).stdout
+  result = json.load(output)
+  if result['status'] == 'ok' and result['nresults'] == 1 :
+    return result['data'][0]['summary'][0]
+  else :
+    return None
 
+# Load any extra information that we may have collected
 json_location = os.path.dirname(os.path.realpath(__file__))+"/ZHinv_datasets.json"
 if os.path.exists(json_location) :
   with open(json_location) as f :
-    patstuff = json.load(f)
+    extras = json.load(f)
     for key in ZHinv_datasets.iterkeys() :
-      if key in patstuff :
-        ZHinv_datasets[key]['matching_pat'] = patstuff[key]['matching_pat']
+      if key in extras :
+        if 'matching_pat' in extras[key] :
+          ZHinv_datasets[key]['matching_pat'] = extras[key]['matching_pat']
+        # 'matching_pat' filled from match_PAT.py
+
+        if 'dbs_info' in extras[key] :
+          ZHinv_datasets[key]['dbs_info'] = extras[key]['dbs_info']
+        else :
+          ZHinv_datasets[key]['dbs_info'] = getDBSInfo(ZHinv_datasets[key]['name'])
 
 if __name__ == "__main__" :
-  print "Z(ll) H(inv.) dataset summary --------"
-  for name, info in ZHinv_datasets.iteritems() :
-    print "%s (type %s, flags: %s)" % (name, info['type'], ",".join(info.get('flags','')))
+  print json.dumps(ZHinv_datasets, indent=4)
