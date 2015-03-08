@@ -137,13 +137,9 @@ for PD in primaryDatasets :
   ZHinv_datasets.update(dataset)
 
 def getDBSInfo(das_path) :
-  query = 'summary dataset=%s' % das_path
-  cmd = ['das_client.py',
-      '--format=json',
-      '--query="%s"' % query]
-  output = subprocess.Popen(" ".join(cmd), shell=True, stdout=subprocess.PIPE).stdout
-  result = json.load(output)
-  if result['status'] == 'ok' and result['nresults'] == 1 :
+  from das_query import das_query
+  result = das_query('summary dataset=%s' % das_path)
+  if result['nresults'] == 1 :
     return result['data'][0]['summary'][0]
   else :
     return None
