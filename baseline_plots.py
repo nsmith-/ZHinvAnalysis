@@ -22,6 +22,10 @@ def stackUp(**kwargs) :
     (this is more a log of things that need input validation later)
   '''
   name = kwargs['name']
+  cut = kwargs['cut'] if 'cut' in kwargs else ''
+  if type(cut) is list :
+    cut = " && ".join(cut)
+
   directory = ROOT.TDirectory(name+"_dir", "Helps with TTree::Draw")
   directory.cd()
   canvas = ROOT.TCanvas(name, name)
@@ -44,7 +48,7 @@ def stackUp(**kwargs) :
     plotgroup = info['plotgroup']
     h = findGroupHist(plotgroup)
     hname = h.GetName()
-    kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, kwargs['cut'] if 'cut' in kwargs else '')
+    kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut)
     if info['type'] == 'mc' and not 'signal' in info.get('flags',[]) :
       tostack[plotgroup] = h
     elif info['type'] == 'data' :
@@ -101,8 +105,8 @@ for name, info in ZHinv_datasets.iteritems() :
   # No data for now
   # if ZHinv_datasets[name]['type'] == 'data' :
   #   continue
-  tuplename = info['matching_pat'].keys()[0]
-  f = ROOT.TFile("datasets/"+tuplename+".root")
+  shortname = info['matching_pat'].keys()[0]
+  f = ROOT.TFile("datasets/"+shortname+".root")
   files[name] = f
 
 eetrees = {}
@@ -126,12 +130,14 @@ for name, tfile in files.iteritems() :
 if not os.path.exists('plots/') :
   os.mkdir('plots')
 
+
 c = stackUp(name="diLeptonMass",
     bins=50,
     xmin=91-25,
     xmax=91+25,
     trees=eetrees,
     variable="Mass",
+    cut='doubleEPass',
     logY=True,
     ymin=1e-1,
     ymax=1e6,
@@ -146,6 +152,7 @@ cpt = stackUp(name="diLeptonPt",
     xmax=500,
     trees=eetrees,
     variable="Pt",
+    cut='doubleEPass',
     logY=True,
     ymin=1e-2,
     ymax=1e4,
