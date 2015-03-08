@@ -101,6 +101,7 @@ def stackUp(**kwargs) :
   return canvas
 
 files = {}
+missing_events = {}
 for name, info in ZHinv_datasets.iteritems() :
   # No data for now
   # if ZHinv_datasets[name]['type'] == 'data' :
@@ -108,6 +109,8 @@ for name, info in ZHinv_datasets.iteritems() :
   shortname = info['matching_pat'].keys()[0]
   f = ROOT.TFile("datasets/"+shortname+".root")
   files[name] = f
+  with open("datasets/"+shortname+".missing_events.txt") as misscount :
+    missing_events[name] = int(misscount.read())
 
 eetrees = {}
 for name, tfile in files.iteritems() :
@@ -120,16 +123,16 @@ for name, tfile in files.iteritems() :
       xs = 0
     nevents = tfile.Get("ee/cutSummary").GetBinContent(1)
     das_nevents = ZHinv_datasets[name]['dbs_info']['nevents']
-    print "% 8d, % 9d (%1.2f): %s" % (nevents, das_nevents, nevents/das_nevents, ZHinv_datasets[name]["name"])
+    dataset_nevents_processed = das_nevents - missing_events[name]
+    print "pass: % 8d, processed: % 9d, dataset: % 9d, lost: % 3.1f%% : %s" % (nevents, dataset_nevents_processed, das_nevents, missing_events[name]*100./das_nevents, ZHinv_datasets[name]["name"])
     if not nevents > 0 :
       print "Empty tree for " + name
     else :
-      tree.SetWeight(19.6e3*xs/das_nevents)
+      tree.SetWeight(19.6e3*xs/dataset_nevents_processed)
   eetrees[name] = tree
 
 if not os.path.exists('plots/') :
   os.mkdir('plots')
-
 
 c = stackUp(name="diLeptonMass",
     bins=50,
