@@ -12,6 +12,7 @@ Output TTrees are skimmed using baseline selection described in AN2012-123 to pr
 ### Skim Process:
 * Make metadata (described in `meta/README.md`)
 * Run `run_skim.sh`, will take a while
+* Run `disambiguate.py` to choose best candidates per event
 
 ### Plots after baseline selection: (to do)
 * Dilepton mass

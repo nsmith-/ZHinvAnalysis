@@ -1,6 +1,6 @@
-#!/bin/env python
+#!/usr/bin/env python
 import ROOT
-ROOT.gROOT.SetBatch(ROOT.kTRUE)
+# ROOT.gROOT.SetBatch(ROOT.kTRUE)
 from meta.plotgroups import plotgroups, stack_order
 from meta.ZHinv_datasets import ZHinv_datasets
 import json, os
@@ -131,6 +131,7 @@ for name, tfile in files.iteritems() :
       tree.SetWeight(19.6e3*xs/dataset_nevents_processed)
   eetrees[name] = tree
 
+
 if not os.path.exists('plots/') :
   os.mkdir('plots')
 
@@ -140,7 +141,7 @@ c = stackUp(name="diLeptonMass",
     xmax=91+25,
     trees=eetrees,
     variable="Mass",
-    cut='doubleEPass',
+    cut='doubleEPass && bestCandidate',
     logY=True,
     ymin=1e-1,
     ymax=1e6,
@@ -155,7 +156,7 @@ cpt = stackUp(name="diLeptonPt",
     xmax=500,
     trees=eetrees,
     variable="Pt",
-    cut='doubleEPass',
+    cut='doubleEPass && bestCandidate',
     logY=True,
     ymin=1e-2,
     ymax=1e4,
