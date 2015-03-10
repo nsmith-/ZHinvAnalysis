@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 import json
 
 def das_query ( query ) :

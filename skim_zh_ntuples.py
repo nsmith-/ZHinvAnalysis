@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 import ROOT
 ROOT.gROOT.SetBatch(ROOT.kTRUE)
 import sys, os

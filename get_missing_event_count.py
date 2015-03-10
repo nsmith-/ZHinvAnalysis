@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 
 def get_dataset_files(dataset_name) :
   from meta.das_query import das_query

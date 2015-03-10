@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 import json, os, subprocess
 
 # MC DAS paths, referenced by primary dataset name
