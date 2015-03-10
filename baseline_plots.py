@@ -164,3 +164,18 @@ cpt = stackUp(name="diLeptonPt",
     ytitle="Events / 10 GeV")
 cpt.Print("plots/diLeptonPt.root")
 cpt.Print("plots/diLeptonPt.pdf")
+
+cmet = stackUp(name="reducedMETBalance",
+    bins=25,
+    xmin=0,
+    xmax=5,
+    trees=eetrees,
+    variable="reducedMET/Pt",
+    cut='doubleEPass && bestCandidate',
+    logY=True,
+    ymin=1e-2,
+    ymax=1e4,
+    xtitle="#slash{E}_{T}/p^{ll}_{T}",
+    ytitle="Events / 0.2")
+cmet.Print("plots/METBalance.root")
+cmet.Print("plots/METBalance.pdf")
