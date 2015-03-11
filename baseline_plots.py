@@ -59,18 +59,26 @@ def stackUp(**kwargs) :
     else :
       todraw[h] = ""
 
-  for group in stack_order:
+  hstackErrors = ROOT.TH1F("_".join([name, "hstackErrors"]), 'Stat. Error', kwargs['bins'], kwargs['xmin'], kwargs['xmax'])
+  hstackErrors.SetDirectory(0)
+  hstackErrors.Sumw2()
+  hstackErrors.SetFillColor(ROOT.kGray+2)
+  hstackErrors.SetFillStyle(3013)
+  hstackErrors.SetMarkerSize(0)
+  for group in stack_order :
     h = tostack[group]
-    # Hack until I get a better legend builder
-    h.SetLineColor(h.GetFillColor())
-    h.SetMarkerColor(h.GetFillColor())
+    h.SetLineColor(ROOT.TColor.GetColorDark(h.GetFillColor()))
     h.SetDirectory(0)
+    hstackErrors.Add(h)
     mcStack.Add(h)
+
   mcStack.Draw()
   mcStack.SetMinimum(kwargs['ymin'])
   mcStack.SetMaximum(kwargs['ymax'])
   mcStack.GetXaxis().SetTitle(kwargs['xtitle'])
   mcStack.GetYaxis().SetTitle(kwargs['ytitle'])
+
+  hstackErrors.Draw("E2 same")
 
   for h, style in todraw.iteritems() :
     h.SetDirectory(0)
@@ -98,6 +106,7 @@ def stackUp(**kwargs) :
   # Transfer object ownership to canvas
   for h in todraw.iterkeys() :
     ROOT.SetOwnership(h, False)
+  ROOT.SetOwnership(hstackErrors, False)
   ROOT.SetOwnership(mcStack, False)
   ROOT.SetOwnership(legend, False)
   canvas.GetListOfPrimitives().SetOwner(True)
