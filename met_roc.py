@@ -2,8 +2,8 @@
 import ROOT
 import util
 
-signalChain = util.buildChain('datasets/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola.ntuples.txt', 'ee/final/Ntuple')
-backgroundChain = util.buildChain('datasets/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball.ntuples.txt', 'ee/final/Ntuple')
+signalChain = util.buildChain('datasets/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola.ntuples.txt', 'ee/final/Ntuple', 40)
+backgroundChain = util.buildChain('datasets/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball.ntuples.txt', 'ee/final/Ntuple', 40)
 
 def buildROC(var) :
   plotdir = ROOT.TDirectory("roc","roc")

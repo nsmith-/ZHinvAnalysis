@@ -131,7 +131,9 @@ for name, tfile in files.iteritems() :
     if not nevents > 0 :
       print "Empty tree for " + name
     else :
-      tree.SetWeight(19.6e3*xs/dataset_nevents_processed)
+      weight = 19.6e3*xs/dataset_nevents_processed
+      tree.SetWeight(weight)
+      print "Dataset weight: %f" % weight
   eetrees[name] = tree
 
 
