@@ -44,7 +44,9 @@ plotgroups = {
         'title' : "Z(ll)H(inv)",
         'histOptions' : {
              'LineColor' : ROOT.kRed,
-             'LineWidth' : 2
+             'LineWidth' : 2,
+             'MarkerColor' : ROOT.kRed,
+             'MarkerSize' : 0
         }
     },
     'singleTop': {
