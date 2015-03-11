@@ -1,35 +1,37 @@
 #!/usr/bin/env python
 import ROOT
 
+# Matched to AN2012_123 colors using
+# mac 'Digital Color Meter' with sRGB color coordinates
 plotgroups = {
     'WToLNu': {
         'title' : "W#rightarrowl#nu",
         'histOptions' : {
-            'FillColor': ROOT.kYellow
+            'FillColor': ROOT.TColor.GetColor('#FFFF02')
         }
     },
     'ZToLL': {
         'title' : "Z#rightarrowll",
         'histOptions' : {
-            'FillColor': ROOT.kCyan
+            'FillColor': ROOT.TColor.GetColor('#01FFFF')
         }
     },
     'WW': {
         'title' : "WW#rightarrow2l2#nu",
         'histOptions' : {
-            'FillColor': ROOT.kYellow-2
+            'FillColor': ROOT.kYellow-7
         }
     },
     'WZ': {
         'title' : "WZ#rightarrow3l#nu",
         'histOptions' : {
-             'FillColor': ROOT.kBlue
+             'FillColor': ROOT.kBlue-7
         }
     },
     'ZZ': {
         'title' : "ZZ#rightarrow2l2#nu",
         'histOptions' : {
-             'FillColor': ROOT.kGreen
+             'FillColor': ROOT.kGreen+1
         }
     },
     'data': {
@@ -48,13 +50,13 @@ plotgroups = {
     'singleTop': {
         'title' : "Single top",
         'histOptions' : {
-             'FillColor': ROOT.kViolet
+             'FillColor': ROOT.kViolet-4
         }
     },
     'ttbar': {
         'title' : "t#bar{t}",
         'histOptions' : {
-             'FillColor': ROOT.kBlue+2
+             'FillColor': ROOT.kViolet+5
         }
     }
 }
