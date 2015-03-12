@@ -46,10 +46,7 @@ def stackUp(**kwargs) :
         plotgroup = info['plotgroup']
         h = findGroupHist(plotgroup)
         hname = h.GetName()
-        lumimask = ''
-        if info['type'] == 'data' :
-                lumimask = ' && lumiMask'
-        kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut+lumimask)
+        kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut)
         if info['type'] == 'mc' and not 'signal' in info.get('flags',[]) :
             tostack[plotgroup] = h
         elif info['type'] == 'data' :
