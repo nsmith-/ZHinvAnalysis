@@ -70,6 +70,7 @@ def stackUp(**kwargs) :
     mcStack.Draw()
     mcStack.SetMinimum(kwargs['ymin'])
     mcStack.SetMaximum(kwargs['ymax'])
+    # FIXME: all hists should get titles
     mcStack.GetXaxis().SetTitle(kwargs['xtitle'])
     mcStack.GetYaxis().SetTitle(kwargs['ytitle'])
 
@@ -83,7 +84,8 @@ def stackUp(**kwargs) :
         canvas.SetLogy()
 
     legend = ROOT.TLegend(.55, .75, .92, .88)
-    for h in tostack.itervalues() :
+    for group in stack_order :
+        h = tostack[group]
         legend.AddEntry(h, h.GetTitle(), "f")
     for h, style in todraw.iteritems() :
         entrystyle = 'l'
