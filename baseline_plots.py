@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import ROOT
 # ROOT.gROOT.SetBatch(ROOT.kTRUE)
-from meta.ZHinv_datasets import ZHinv_datasets
 from stackUp import stackUp
+import meta
 import util
 import os
 
@@ -52,8 +52,8 @@ plotConfigs.append({
     'ytitle' : "Events / 0.2"
     })
 
-eetrees = util.getDatasetTrees("ee/Ntuple", ZHinv_datasets)
-mmtrees = util.getDatasetTrees("mm/Ntuple", ZHinv_datasets)
+eetrees = util.getDatasetTrees("ee/Ntuple", meta.ZHinv_datasets)
+mmtrees = util.getDatasetTrees("mm/Ntuple", meta.ZHinv_datasets)
 
 canvases = {}
 for config in plotConfigs :

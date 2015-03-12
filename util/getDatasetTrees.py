@@ -1,12 +1,18 @@
 import ROOT
+from buildChain import buildChain
 
 def getDatasetTrees(tuplePath, datasets, printInfo=True) :
     trees = {}
     for name, info in datasets.iteritems() :
         shortname = info['matching_pat'].keys()[0]
-        tree = ROOT.TChain(tuplePath)
-        filename = "datasets/"+shortname+".root"
-        tree.Add(filename)
+        tree = None
+        # FIXME : hack
+        if 'final' not in tuplePath :
+            tree = ROOT.TChain(tuplePath)
+            filename = "datasets/"+shortname+".root"
+            tree.Add(filename)
+        else :
+            tree = buildChain("datasets/"+shortname+".ntuples.txt", tuplePath, 4)
         with open("datasets/"+shortname+".missing_events.txt") as misscount :
             missing_events = int(misscount.read())
         if datasets[name]['type'] == 'mc' :

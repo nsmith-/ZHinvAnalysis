@@ -1,6 +1,6 @@
 import ROOT
 from meta.plotgroups import plotgroups, stack_order
-from meta.ZHinv_datasets import ZHinv_datasets
+import meta
 
 def stackUp(**kwargs) :
     ''' Parameters:
@@ -40,7 +40,7 @@ def stackUp(**kwargs) :
             getattr(h, "Set"+optname)(optvalue)
         return h
 
-    for dataname, info in ZHinv_datasets.iteritems() :
+    for dataname, info in meta.ZHinv_datasets.iteritems() :
         if dataname not in kwargs['trees'] :
             continue
         plotgroup = info['plotgroup']

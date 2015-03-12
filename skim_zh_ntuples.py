@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import ROOT
 ROOT.gROOT.SetBatch(ROOT.kTRUE)
+import meta
 import sys, os
 
 def mergeWithCuts(treeName, fileNames, selections, outFile) :
@@ -26,26 +27,6 @@ def mergeWithCuts(treeName, fileNames, selections, outFile) :
     cutInfo.GetXaxis().SetBinLabel(i+1, labels[i])
   cutInfo.Write()
 
-eID = [
-  "Pt > 20",
-  "CBID_MEDIUM==1",
-]
-muID = [
-  "Pt > 20",
-  "IsGlobal==1",
-  "IsTracker==1",
-  "MuonHits>0",
-  "MatchedStations>1",
-  "TkLayersWithMeasurement>5",
-  "PixHits>0",
-  "NormTrkChi2<10",
-  "PVDXY<.2",
-  "PVDZ<.5",
-  "RelPFIsoDBDefault<.2"
-]
-
-ecuts = [leg+cut for leg in ("e1","e2") for cut in eID]
-mcuts = [leg+cut for leg in ("m1","m2") for cut in muID]
 baseline = [
   "abs(Mass-91)<25",
   "Pt>30",
@@ -59,6 +40,6 @@ with open(os.getenv('INPUT')) as inList :
     inFiles.append(fn.strip())
 
 outfile = ROOT.TFile(os.getenv('OUTPUT'), "recreate")
-mergeWithCuts("ee/final/Ntuple", inFiles, ecuts+baseline, outfile)
-mergeWithCuts("mm/final/Ntuple", inFiles, mcuts+baseline, outfile)
+mergeWithCuts("ee/final/Ntuple", inFiles, meta.ecuts+baseline, outfile)
+mergeWithCuts("mm/final/Ntuple", inFiles, meta.mcuts+baseline, outfile)
 
