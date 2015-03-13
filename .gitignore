@@ -1,4 +1,7 @@
 *.pyc
 *.json
 *.txt
+*.d
+*.so
+.DS_Store
 datasets/
