@@ -12,7 +12,7 @@ def getDatasetTrees(tuplePath, datasets, printInfo=True) :
             filename = "datasets/"+shortname+".root"
             tree.Add(filename)
         else :
-            tree = buildChain("datasets/"+shortname+".ntuples.txt", tuplePath, 4)
+            tree = buildChain("datasets/"+shortname+".ntuples.txt", tuplePath)
         with open("datasets/"+shortname+".missing_events.txt") as misscount :
             missing_events = int(misscount.read())
         if datasets[name]['type'] == 'mc' :
