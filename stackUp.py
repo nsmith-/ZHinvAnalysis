@@ -47,7 +47,7 @@ def stackUp(**kwargs) :
         h = findGroupHist(plotgroup)
         hname = h.GetName()
         singlemuhack = ''
-        if 'SingleMu' in dataname :
+        if 'SingleMu' in dataname and 'MuPass' in cut :
             singlemuhack = ' && duplicate_event==0'
         kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut+singlemuhack)
         if info['type'] == 'mc' and not 'signal' in info.get('flags',[]) :

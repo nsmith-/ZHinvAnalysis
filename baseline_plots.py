@@ -2,6 +2,7 @@
 import ROOT
 # ROOT.gROOT.SetBatch(ROOT.kTRUE)
 from stackUp import stackUp
+from splitCanvas import splitCanvas
 import meta
 import util
 import os
@@ -59,7 +60,7 @@ canvases = {}
 for config in plotConfigs :
     config['cut'].append('doubleEPass')
     config['name'] += '_ee'
-    canvas = stackUp(trees=eetrees, **config)
+    canvas = splitCanvas(stackUp(trees=eetrees, **config))
     canvases[config['name']] = canvas
     canvas.Print("plots/%s.pdf" % config['name'])
     canvas.Print("plots/%s.root" % config['name'])
@@ -67,7 +68,7 @@ for config in plotConfigs :
     config['cut'].pop()
     config['name'] = config['name'].replace('_ee','_mm')
     config['cut'].append('doubleMuPass')
-    canvas = stackUp(trees=mmtrees, **config)
+    canvas = splitCanvas(stackUp(trees=mmtrees, **config))
     canvases[config['name']] = canvas
     canvas.Print("plots/%s.pdf" % config['name'])
     canvas.Print("plots/%s.root" % config['name'])
