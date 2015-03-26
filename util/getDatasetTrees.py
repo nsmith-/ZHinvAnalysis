@@ -13,8 +13,6 @@ def getDatasetTrees(tuplePath, datasets, printInfo=True) :
             tree.Add(filename)
         else :
             tree = buildChain("datasets/"+shortname+".ntuples.txt", tuplePath)
-        with open("datasets/"+shortname+".missing_events.txt") as misscount :
-            missing_events = int(misscount.read())
         with open("datasets/"+shortname+".ntuple_eventcount.txt") as evtcount :
             ntuple_eventcount = int(evtcount.read())
         if datasets[name]['type'] == 'mc' :
@@ -24,12 +22,10 @@ def getDatasetTrees(tuplePath, datasets, printInfo=True) :
                 if printInfo : 
                     print "No cross section info for " + name
                 xs = 0
-            nevents = tree.GetEntries()
             das_nevents = datasets[name]['dbs_info']['nevents']
-            # dataset_nevents_processed = das_nevents - missing_events
             dataset_nevents_processed = ntuple_eventcount
             if printInfo :
-                print "pass: % 8d, processed: % 9d, dataset: % 9d, lost: % 3.1f%% : %s" % (nevents, dataset_nevents_processed, das_nevents, (das_nevents-dataset_nevents_processed)*100./das_nevents, datasets[name]["name"])
+                print "processed: % 9d, dataset: % 9d, lost: % 3.1f%% : %s" % (dataset_nevents_processed, das_nevents, (das_nevents-dataset_nevents_processed)*100./das_nevents, datasets[name]["name"])
             if nevents > 0 :
                 weight = 19.6e3*xs/dataset_nevents_processed
                 tree.SetWeight(weight, "global")
