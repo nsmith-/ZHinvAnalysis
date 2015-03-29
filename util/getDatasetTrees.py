@@ -26,11 +26,11 @@ def getDatasetTrees(tuplePath, datasets, printInfo=True) :
             dataset_nevents_processed = ntuple_eventcount
             if printInfo :
                 print "processed: % 9d, dataset: % 9d, lost: % 3.1f%% : %s" % (dataset_nevents_processed, das_nevents, (das_nevents-dataset_nevents_processed)*100./das_nevents, datasets[name]["name"])
-            lumi = 19.6 # this was the previous placeholder value
+            lumi = 19.6e3 # this was the previous placeholder value
             if 'ee' in tuplePath :
-                lumi = 19.238
+                lumi = 19.238e3
             elif 'mm' in tuplePath :
-                lumi = 19.762
+                lumi = 19.762e3
             weight = lumi*xs/dataset_nevents_processed
             tree.SetWeight(weight, "global")
             if printInfo :
