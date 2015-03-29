@@ -26,11 +26,10 @@ def getDatasetTrees(tuplePath, datasets, printInfo=True) :
             dataset_nevents_processed = ntuple_eventcount
             if printInfo :
                 print "processed: % 9d, dataset: % 9d, lost: % 3.1f%% : %s" % (dataset_nevents_processed, das_nevents, (das_nevents-dataset_nevents_processed)*100./das_nevents, datasets[name]["name"])
-            if nevents > 0 :
-                weight = 19.6e3*xs/dataset_nevents_processed
-                tree.SetWeight(weight, "global")
-                if printInfo :
-                    print "Dataset weight: %f" % weight
+            weight = 19.762e3*xs/dataset_nevents_processed
+            tree.SetWeight(weight, "global")
+            if printInfo :
+                print "Dataset weight: %f" % weight
         trees[name] = tree
     return trees
 
