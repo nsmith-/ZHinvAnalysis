@@ -9,6 +9,7 @@ def stackUp(**kwargs) :
         xmin
         xmax
         trees
+        (or plotfile)
         variable
         cut
         ymin
@@ -41,15 +42,20 @@ def stackUp(**kwargs) :
         return h
 
     for dataname, info in meta.ZHinv_datasets.iteritems() :
-        if dataname not in kwargs['trees'] :
-            continue
         plotgroup = info['plotgroup']
         h = findGroupHist(plotgroup)
         hname = h.GetName()
         singlemuhack = ''
         if 'SingleMu' in dataname and 'MuPass' in cut :
             singlemuhack = ' && duplicate_event==0'
-        kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut+singlemuhack)
+        if 'plotfile' in kwargs :
+            hToAdd = kwargs['plotfile'].Get('%s_%s_hist' % (dataname, name))
+            if hToAdd != None :
+                h.Add(hToAdd)
+        elif 'trees' in kwargs :
+            if dataname not in kwargs['trees'] :
+                continue
+            kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut+singlemuhack)
         if info['type'] == 'mc' and not 'signal' in info.get('flags',[]) :
             tostack[plotgroup] = h
         elif info['type'] == 'data' :

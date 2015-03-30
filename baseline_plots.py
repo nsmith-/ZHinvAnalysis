@@ -7,8 +7,8 @@ import meta
 import util
 import os
 
-if not os.path.exists('plots/') :
-  os.mkdir('plots')
+if not os.path.exists('plots/baseline') :
+  os.mkdir('plots/baseline')
 
 plotConfigs = []
 plotConfigs.append({
@@ -62,14 +62,14 @@ for config in plotConfigs :
     config['name'] += '_ee'
     canvas = splitCanvas(stackUp(trees=eetrees, **config))
     canvases[config['name']] = canvas
-    canvas.Print("plots/%s.pdf" % config['name'])
-    canvas.Print("plots/%s.root" % config['name'])
+    canvas.Print("plots/baseline/%s.pdf" % config['name'])
+    canvas.Print("plots/baseline/%s.root" % config['name'])
 
     config['cut'].pop()
     config['name'] = config['name'].replace('_ee','_mm')
     config['cut'].append('doubleMuPass')
     canvas = splitCanvas(stackUp(trees=mmtrees, **config))
     canvases[config['name']] = canvas
-    canvas.Print("plots/%s.pdf" % config['name'])
-    canvas.Print("plots/%s.root" % config['name'])
+    canvas.Print("plots/baseline/%s.pdf" % config['name'])
+    canvas.Print("plots/baseline/%s.root" % config['name'])
 
