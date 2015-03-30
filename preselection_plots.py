@@ -10,6 +10,7 @@ if not os.path.exists('preselection_plots.root') :
     data_tier = 'full'
     ROOT.TProof.Open('workers=12')
     proof = ROOT.gProof
+    proof.Load('disambiguateFinalStates.C+')
 
     hists =[]
     for name, info in meta.ZHinv_datasets.iteritems() :
@@ -25,11 +26,17 @@ if not os.path.exists('preselection_plots.root') :
         cuts = list(meta.ecuts)
         if info['type'] == 'data' :
             cuts += ['doubleETightPass']
-        proof.DrawSelect(proof_name+'#/ee/final/Ntuple', 'Mass >> +%s_Mass_hist(100, 40, 250)'%name, '&&'.join(cuts), 'goff')
+
+        disambiguator = ROOT.disambiguateFinalStates()
+        proof.Process(proof_name+'#/ee/final/Ntuple', disambiguator)
+        entryList = disambiguator.GetOutputList().FindObject('bestCandidates')
+        entryList.SetName(proof_name+'_bestCandidates')
+        hists.append(entryList)
+        proof.DrawSelect(proof_name+'#/ee/final/Ntuple', 'Mass >> +%s_Mass_hist(100, 40, 250)'%name, '&&'.join(cuts), 'goff', -1, 0, entryList)
         hists.append(proof.GetOutputList().FindObject(name+'_Mass_hist'))
-        proof.DrawSelect(proof_name+'#/ee/final/Ntuple', 'Pt >> +%s_Pt_hist(100, 0, 500)'%name, '&&'.join(cuts), 'goff')
+        proof.DrawSelect(proof_name+'#/ee/final/Ntuple', 'Pt >> +%s_Pt_hist(100, 0, 500)'%name, '&&'.join(cuts), 'goff', -1, 0, entryList)
         hists.append(proof.GetOutputList().FindObject(name+'_Pt_hist'))
-        proof.DrawSelect(proof_name+'#/ee/final/Ntuple', 'reducedMET >> +%s_reducedMET_hist(100, 0, 500)'%name, '&&'.join(cuts), 'goff')
+        proof.DrawSelect(proof_name+'#/ee/final/Ntuple', 'reducedMET >> +%s_reducedMET_hist(100, 0, 500)'%name, '&&'.join(cuts), 'goff', -1, 0, entryList)
         hists.append(proof.GetOutputList().FindObject(name+'_reducedMET_hist'))
 
     out = ROOT.TFile('preselection_plots.root', 'recreate')
