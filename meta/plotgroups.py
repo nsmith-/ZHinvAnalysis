@@ -16,6 +16,12 @@ plotgroups = {
             'FillColor': ROOT.TColor.GetColor('#01FFFF')
         }
     },
+    'ZToLL_low': {
+        'title' : "Low-mass Z#rightarrowll",
+        'histOptions' : {
+            'FillColor': ROOT.kRed-6
+        }
+    },
     'WW': {
         'title' : "WW#rightarrow2l2#nu",
         'histOptions' : {
@@ -70,5 +76,6 @@ stack_order = [
     'ttbar',
     'singleTop',
     'WToLNu',
+    'ZToLL_low',
     'ZToLL'
 ]

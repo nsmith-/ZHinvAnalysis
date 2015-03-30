@@ -41,7 +41,7 @@ ZHinv_datasets = {
     "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
         "name": "/DYJetsToLL_M-10To50filter_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
         "cross_section" : 860.5,
-        "plotgroup" : "ZToLL"
+        "plotgroup" : "ZToLL_low"
     }, 
     "ZG_Inclusive_8TeV-madgraph": {
         "name": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
