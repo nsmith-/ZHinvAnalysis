@@ -14,6 +14,9 @@ for dataset in `cat meta/sample_shortnames.txt`; do
   if [ ! -f datasets/${dataset}.root ]; then
     INPUT="datasets/${dataset}.ntuples.txt" OUTPUT="datasets/${dataset}.root" ./skim_zh_ntuples.py 2>/dev/null
   fi
+  if [ ! -f datasets/${dataset}.das_eventcount.txt ]; then
+    ./read_das_eventcount.py ${dataset} > datasets/${dataset}.das_eventcount.txt
+  fi
 done
 
 # Lumi for data datasets

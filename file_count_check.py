@@ -16,7 +16,7 @@ def das_count(dataset_name) :
         raise
 
 def pat_count(shortname) :
-    from get_missing_event_count import get_pat_file_dict
+    from read_das_eventcount import get_pat_file_dict
     pat_dict = get_pat_file_dict(shortname)
     pat_count = 0
     for infiles in pat_dict.itervalues() :

@@ -15,14 +15,16 @@ if not os.path.exists('preselection_plots.root') :
     hists =[]
     for name, info in meta.ZHinv_datasets.iteritems() :
         proof_name = '_'.join([name, data_tier])
+        proof.DeleteParameters('PROOF_ChainWeight')
         if info['type'] == 'mc' :
             shortname = info['matching_pat'].keys()[0]
-            with open("datasets/"+shortname+".ntuple_eventcount.txt") as evtcount :
+            with open("datasets/"+shortname+".das_eventcount.txt") as evtcount :
                 ntuple_eventcount = int(evtcount.read())
             lumi = 19.238e3
             xs = info['cross_section']
             weight = lumi*xs/ntuple_eventcount
             proof.SetParameter('PROOF_ChainWeight', weight)
+            print "Weight for dataset %s = %f" % (shortname, weight)
         cuts = list(meta.ecuts)
         if info['type'] == 'data' :
             cuts += ['doubleETightPass']
