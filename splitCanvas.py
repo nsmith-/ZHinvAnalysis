@@ -22,7 +22,6 @@ def fixFontSize(item, scale) :
     for fun in sizeFunctions :
         if hasattr(item, 'Set'+fun) :
             getattr(item, 'Set'+fun)(getattr(item, 'Get'+fun)()*scale)
-            print 'fixing %s for %s (type %s)' % (fun, item.GetName(), item.ClassName())
 
 def readStyle(canvas) :
     style = ROOT.TStyle(canvas.GetName()+"_style", "Read style")

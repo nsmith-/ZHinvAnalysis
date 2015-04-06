@@ -21,7 +21,7 @@ Bool_t disambiguateFinalStates::Process(Long64_t entry)
 
   if ( !fPostInit && !(run == fCurrentRun && evt == fCurrentEvt) )
   {
-    Long64_t bestEntry = 0L;
+    Long64_t bestEntry = -1L;
     Float_t lowestDiscriminant = 1e10;
     for (size_t i=0; i<fEntriesToCompare.size(); ++i)
     {
@@ -32,7 +32,8 @@ Bool_t disambiguateFinalStates::Process(Long64_t entry)
       }
     }
 
-    fBestCandidateEntryList->Enter(bestEntry);
+    if ( bestEntry > 0 )
+      fBestCandidateEntryList->Enter(bestEntry);
 
     fEntriesToCompare.clear();
     fEntryDiscriminants.clear();
@@ -45,8 +46,12 @@ Bool_t disambiguateFinalStates::Process(Long64_t entry)
   fCurrentRun = run;
   fCurrentEvt = evt;
   
-  Float_t discriminant = fabs(Mass-91.);
+  if ( fCutFormula && fCutFormula->EvalInstance() != 1. )
+  {
+    return kFALSE;
+  }
 
+  Float_t discriminant = fabs(Mass-91.);
   fEntriesToCompare.push_back(entry);
   fEntryDiscriminants.push_back(discriminant);
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-import pickle, array
+import pickle, array, os, sys
 import ROOT
+ROOT.gROOT.SetBatch(True)
 import util
 
 def getRunEvtTuples(chain) :
@@ -14,11 +15,11 @@ def getRunEvtTuples(chain) :
     return tuples
 
 def deduplicate(left_dataset, right_dataset, tuple_path) :
-    left_tree = util.buildChain('datasets/%s.root' % left_dataset, tuple_path)
+    left_tree = util.buildChain('datasets/%s.ntuples.txt' % left_dataset, tuple_path)
     left_set = getRunEvtTuples(left_tree)
     print "Built set for %s" % left_dataset
 
-    right_tree = util.buildChain('datasets/%s.root' % right_dataset, tuple_path)
+    right_tree = util.buildChain('datasets/%s.ntuples.txt' % right_dataset, tuple_path)
     right_set = getRunEvtTuples(right_tree)
     print "Built set for %s" % right_dataset
 
@@ -28,25 +29,28 @@ def deduplicate(left_dataset, right_dataset, tuple_path) :
     with open('datasets/%s.duplicates.pickle' % left_dataset, 'w') as out :
         pickle.dump(dupes, out, 2)
 
-def makeDupeBranch(dataset_name, tuple_path) :
-    treefile = ROOT.TFile('datasets/%s.root' % dataset_name, 'update')
-    tree = treefile.Get(tuple_path)
-
+def makeEntryList(dataset_name, tuple_path) :
+    chain = util.buildChain('datasets/%s.ntuples.txt' % dataset_name, tuple_path)
     duplicates = pickle.load(open('datasets/%s.duplicates.pickle' % dataset_name))
+    entryList = ROOT.TEntryList('%s_duplicate_entries'%dataset_name, 'Entries in dataset that are in other datasets')
 
-    duplicate_event = array.array('i',[0])
-    branch = tree.Branch('duplicate_event', duplicate_event, 'duplicate_event/I')
-    
-    for i in range(tree.GetEntries()) :
-        tree.GetEntry(i)
-        if (tree.run, tree.evt) in duplicates :
-            duplicate_event[0] = 1
-        else :
-            duplicate_event[0] = 0
-        branch.Fill()
+    chain.SetBranchStatus('*', 0)
+    chain.SetBranchStatus('run', 1)
+    chain.SetBranchStatus('evt', 1)
+    nentries = chain.GetEntries()
+    for i in range(nentries) :
+        if i%(nentries/100) == 0 :
+            sys.stdout.write('Processing %s: %4.0f%% done.\r' % (dataset_name, i*100./nentries))
+            sys.stdout.flush()
+        chain.GetEntry(i)
+        if (chain.run, chain.evt) in duplicates :
+            entryList.Enter(i, chain)
 
-    treefile.cd(tuple_path[:tuple_path.rfind('/')])
-    tree.Write('', ROOT.TObject.kOverwrite)
+    print 'Made ROOT entry list for ' + dataset_name
+    out = ROOT.TFile('datasets/%s.duplicates.root' % dataset_name, 'recreate')
+    out.cd()
+    entryList.Write()
+    out.Close()
 
 if __name__ == '__main__' :
     singlemu = [
@@ -64,5 +68,7 @@ if __name__ == '__main__' :
     ]
 
     for i in range(4) :
-        deduplicate(singlemu[i], doublemu[i], 'mm/Ntuple')
-        makeDupeBranch(singlemu[i], 'mm/Ntuple')
+        if not os.path.exists('datasets/%s.duplicates.pickle' % singlemu[i]) :
+            deduplicate(singlemu[i], doublemu[i], 'mm/final/Ntuple')
+        if not os.path.exists('datasets/%s.duplicates.root' % singlemu[i]) :
+            makeEntryList(singlemu[i], 'mm/final/Ntuple')

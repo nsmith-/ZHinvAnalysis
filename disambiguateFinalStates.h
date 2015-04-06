@@ -6,6 +6,7 @@
 #include <TFile.h>
 #include <TSelector.h>
 #include <TEntryList.h>
+#include <TTreeFormula.h>
 
 class disambiguateFinalStates : public TSelector {
 public :
@@ -19,10 +20,12 @@ public :
   TBranch        *b_evt;
   TBranch        *b_run;
 
+  TTreeFormula   *fCutFormula;
+
   TEntryList     *fBestCandidateEntryList;
 
-  disambiguateFinalStates(TTree * /*tree*/ =0) : fChain(0), fBestCandidateEntryList(0) { }
-  virtual ~disambiguateFinalStates() { SafeDelete(fBestCandidateEntryList); }
+  disambiguateFinalStates(TTree * /*tree*/ =0) : fChain(0), fBestCandidateEntryList(0), fCutFormula(0) { }
+  virtual ~disambiguateFinalStates() { SafeDelete(fBestCandidateEntryList); SafeDelete(fCutFormula); }
   virtual Int_t   Version() const { return 2; }
   virtual void    Begin(TTree *tree);
   virtual void    SlaveBegin(TTree *tree);
@@ -58,6 +61,11 @@ void disambiguateFinalStates::Init(TTree *tree)
   fChain->SetBranchAddress("Mass", &Mass, &b_Mass);
   fChain->SetBranchAddress("evt", &evt, &b_evt);
   fChain->SetBranchAddress("run", &run, &b_run);
+
+  SafeDelete(fCutFormula);
+  fCutFormula = new TTreeFormula("CutFormula", fOption, fChain);
+  fCutFormula->SetQuickLoad(kTRUE);
+  if (!fCutFormula->GetNdim()) { delete fCutFormula; fCutFormula = 0; }
 
   fPostInit = true;
 }

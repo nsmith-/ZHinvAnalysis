@@ -20,6 +20,8 @@ def stackUp(**kwargs) :
         (this is more a log of things that need input validation later)
     '''
     name = kwargs['name']
+    if 'channel' in kwargs :
+        name = kwargs['channel'] + '_' + name
     cut = kwargs['cut'] if 'cut' in kwargs else ''
     if type(cut) is list :
         cut = " && ".join(cut)
@@ -49,9 +51,11 @@ def stackUp(**kwargs) :
         if 'SingleMu' in dataname and 'MuPass' in cut :
             singlemuhack = ' && duplicate_event==0'
         if 'plotfile' in kwargs :
-            hToAdd = kwargs['plotfile'].Get('%s_%s_hist' % (dataname, name))
+            hToAdd = kwargs['plotfile'].Get('%s_%s_%s_hist' % (dataname, kwargs['proof_prefix'], name))
             if hToAdd != None :
                 h.Add(hToAdd)
+            else :
+                print "Can't find " + '%s_%s_hist' % (dataname, name)
         elif 'trees' in kwargs :
             if dataname not in kwargs['trees'] :
                 continue
