@@ -7,8 +7,9 @@ import meta
 import util
 import os
 
-if not os.path.exists('plots/baseline') :
-  os.mkdir('plots/baseline')
+for channel in ['ee', 'mm'] :
+    if not os.path.exists('plots/%s/baseline' % channel) :
+        os.makedirs('plots/%s/baseline' % channel)
 
 plotConfigs = []
 plotConfigs.append({
@@ -17,7 +18,7 @@ plotConfigs.append({
     'xmin' : 91-25,
     'xmax' : 91+25,
     'variable' : "Mass",
-    'cut' : ['bestCandidate'],
+    'cut' : [],
     'logY' : True,
     'ymin' : 1e-1,
     'ymax' : 1e6,
@@ -31,7 +32,7 @@ plotConfigs.append({
     'xmin' : 0,
     'xmax' : 500,
     'variable' : "Pt",
-    'cut' : ['bestCandidate'],
+    'cut' : [],
     'logY' : True,
     'ymin' : 1e-2,
     'ymax' : 1e4,
@@ -45,7 +46,7 @@ plotConfigs.append({
     'xmin' : 0,
     'xmax' : 5,
     'variable' : "reducedMET/Pt",
-    'cut' : ['bestCandidate'],
+    'cut' : [],
     'logY' : True,
     'ymin' : 1e-2,
     'ymax' : 1e4,
@@ -58,18 +59,15 @@ mmtrees = util.getDatasetTrees("mm/Ntuple", meta.ZHinv_datasets)
 
 canvases = {}
 for config in plotConfigs :
-    config['cut'].append('doubleEPass')
     config['name'] += '_ee'
     canvas = splitCanvas(stackUp(trees=eetrees, **config))
     canvases[config['name']] = canvas
-    canvas.Print("plots/baseline/%s.pdf" % config['name'])
-    canvas.Print("plots/baseline/%s.root" % config['name'])
+    canvas.Print("plots/ee/baseline/%s.pdf" % config['name'])
+    canvas.Print("plots/ee/baseline/%s.root" % config['name'])
 
-    config['cut'].pop()
     config['name'] = config['name'].replace('_ee','_mm')
-    config['cut'].append('doubleMuPass')
     canvas = splitCanvas(stackUp(trees=mmtrees, **config))
     canvases[config['name']] = canvas
-    canvas.Print("plots/baseline/%s.pdf" % config['name'])
-    canvas.Print("plots/baseline/%s.root" % config['name'])
+    canvas.Print("plots/mm/baseline/%s.pdf" % config['name'])
+    canvas.Print("plots/mm/baseline/%s.root" % config['name'])
 

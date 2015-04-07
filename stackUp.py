@@ -47,9 +47,6 @@ def stackUp(**kwargs) :
         plotgroup = info['plotgroup']
         h = findGroupHist(plotgroup)
         hname = h.GetName()
-        singlemuhack = ''
-        if 'SingleMu' in dataname and 'MuPass' in cut :
-            singlemuhack = ' && duplicate_event==0'
         if 'plotfile' in kwargs :
             hToAdd = kwargs['plotfile'].Get('%s_%s_%s_hist' % (dataname, kwargs['proof_prefix'], name))
             if hToAdd != None :
@@ -59,7 +56,7 @@ def stackUp(**kwargs) :
         elif 'trees' in kwargs :
             if dataname not in kwargs['trees'] :
                 continue
-            kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut+singlemuhack)
+            kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut)
         if info['type'] == 'mc' and not 'signal' in info.get('flags',[]) :
             tostack[plotgroup] = h
         elif info['type'] == 'data' :
@@ -96,7 +93,7 @@ def stackUp(**kwargs) :
     if kwargs.get('logY', False) :
         canvas.SetLogy()
 
-    legend = ROOT.TLegend(.55, .75, .92, .88)
+    legend = ROOT.TLegend(.5, .7, .92, .88)
     for group in stack_order :
         h = tostack[group]
         legend.AddEntry(h, h.GetTitle(), "f")

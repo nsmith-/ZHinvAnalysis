@@ -12,12 +12,14 @@ for dataset in `cat meta/sample_shortnames.txt`; do
     find /nfs_scratch/nsmith/ZHinvNtuples/${dataset}/submit -type f -name submit -exec sed -n 's/^Arguments *= "\(.*\)"$/\1/p' '{}' \; > datasets/${dataset}.pattuples.txt
   fi
   if [ ! -f datasets/${dataset}.root ]; then
-    INPUT="datasets/${dataset}.ntuples.txt" OUTPUT="datasets/${dataset}.root" ./skim_zh_ntuples.py 2>/dev/null
+    ./skim_zh_ntuples.py ${dataset} 2>/dev/null &
   fi
   if [ ! -f datasets/${dataset}.das_eventcount.txt ]; then
     ./read_das_eventcount.py ${dataset} > datasets/${dataset}.das_eventcount.txt
   fi
+  while [[ `jobs|wc -l` -gt 7 ]]; do sleep 30; done;
 done
+wait
 
 # Lumi for data datasets
 pushd meta

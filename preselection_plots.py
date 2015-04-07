@@ -23,7 +23,7 @@ if not os.path.exists('preselection_plots.root') :
 
     lumis = { 'ee' : 19.238e3, 'mm' : 19.762e3 }
     objectsToSave =[]
-    entryLists = {}
+    entryLists = []
 
     for name, info in meta.ZHinv_datasets.iteritems() :
         shortname = info['matching_pat'].keys()[0]
@@ -49,12 +49,12 @@ if not os.path.exists('preselection_plots.root') :
             disambiguator = ROOT.disambiguateFinalStates()
             proof.Process(proof_path, disambiguator, '&&'.join(cuts))
             entryList = disambiguator.GetOutputList().FindObject('bestCandidates')
-            entryList.SetName(hist_prefix+'_bestCandidates')
+            entryList.SetName('%s_%s_preselection' % (shortname, channel))
             if os.path.exists('datasets/%s.duplicates.root' % shortname) :
                 df = ROOT.TFile.Open('datasets/%s.duplicates.root' % shortname)
                 duplicates = df.Get('%s_duplicate_entries' % shortname)
                 entryList.Subtract(duplicates)
-            entryLists[name] = entryList
+            entryLists.append(entryList)
 
             proof.DrawSelect(proof_path, 'Mass >> +%s_Mass_hist(100, 40, 250)'%hist_prefix, '', 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_Mass_hist'))
@@ -67,7 +67,7 @@ if not os.path.exists('preselection_plots.root') :
     out.cd()
     for obj in objectsToSave :
         obj.Write()
-    for elist in entryLists.values() :
+    for elist in entryLists :
         elist.Write()
     out.Close()
 
