@@ -5,6 +5,7 @@ ROOT.gROOT.SetBatch(True)
 import meta
 from stackUp import stackUp
 from splitCanvas import splitCanvas
+from meta.pileupReweight import pileupReweightStrings
 
 def setProofChainWeight(shortname, cross_section, lumi) :
     with open("datasets/"+shortname+".das_eventcount.txt") as evtcount :
@@ -56,12 +57,17 @@ if not os.path.exists('preselection_plots.root') :
                 entryList.Subtract(duplicates)
             entryLists.append(entryList)
 
-            proof.DrawSelect(proof_path, 'Mass >> +%s_Mass_hist(100, 40, 250)'%hist_prefix, '', 'goff', -1, 0, entryList)
+            drawCut = ''
+            if info['type'] == 'mc' :
+                drawCut = pileupReweightStrings[channel]
+            proof.DrawSelect(proof_path, 'Mass >> +%s_Mass_hist(100, 40, 250)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_Mass_hist'))
-            proof.DrawSelect(proof_path, 'Pt >> +%s_Pt_hist(100, 0, 500)'%hist_prefix, '', 'goff', -1, 0, entryList)
+            proof.DrawSelect(proof_path, 'Pt >> +%s_Pt_hist(100, 0, 500)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_Pt_hist'))
-            proof.DrawSelect(proof_path, 'reducedMET >> +%s_reducedMET_hist(100, 0, 500)'%hist_prefix, '', 'goff', -1, 0, entryList)
+            proof.DrawSelect(proof_path, 'reducedMET >> +%s_reducedMET_hist(100, 0, 500)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_reducedMET_hist'))
+            proof.DrawSelect(proof_path, 'nvtx >> +%s_nvtx_hist(50, 1, 50)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
+            objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_nvtx_hist'))
 
     out = ROOT.TFile('preselection_plots.root', 'recreate')
     out.cd()
@@ -109,6 +115,19 @@ plotConfigs.append({
     'ymax' : 1e7,
     'xtitle' : "Reduced #slash{E}_{T}",
     'ytitle' : "Events / 5 GeV"
+    })
+
+plotConfigs.append({
+    'name' : "nvtx",
+    'bins' : 50,
+    'xmin' : 1,
+    'xmax' : 50,
+    'variable' : "nvtx",
+    'logY' : True,
+    'ymin' : 1e-1,
+    'ymax' : 1e7,
+    'xtitle' : "# PU Vertices",
+    'ytitle' : "Events / PU Bin"
     })
 
 plotfile = ROOT.TFile('preselection_plots.root')

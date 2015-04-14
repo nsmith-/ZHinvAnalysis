@@ -27,8 +27,32 @@ if [ ! -f DoubleElectron.lumi.txt ]; then
   /afs/hep.wisc.edu/cms/cmsprod/farmoutCmsJobs/jobReportSummary.py --json-out DoubleElectron.json `find /nfs_scratch/nsmith/ZHinvNtuples/data_DoubleElectron* -name *.xml`
   lumiCalc2.py -i DoubleElectron.json overview > DoubleElectron.lumi.txt
 fi
+if [ ! -f DoubleElectron.pileup.root ]; then
+  pileupCalc.py \
+    -i DoubleElectron.json \
+    --inputLumiJSON pileup_JSON_DCSONLY_190389-208686_All_2012_pixelcorr_v2.txt \
+    --calcMode true \
+    --minBiasXsec 69400 \
+    --maxPileupBin 60 \
+    --numPileupBins 60 \
+    DoubleElectron.pileup.root 
+fi
 if [ ! -f Muon.lumi.txt ]; then
   /afs/hep.wisc.edu/cms/cmsprod/farmoutCmsJobs/jobReportSummary.py --json-out Muon.json `find /nfs_scratch/nsmith/ZHinvNtuples/data_*Mu* -name *.xml`
   lumiCalc2.py -i Muon.json overview > Muon.lumi.txt
 fi
+if [ ! -f Muon.pileup.root ]; then
+  pileupCalc.py \
+    -i Muon.json \
+    --inputLumiJSON pileup_JSON_DCSONLY_190389-208686_All_2012_pixelcorr_v2.txt \
+    --calcMode true \
+    --minBiasXsec 69400 \
+    --maxPileupBin 60 \
+    --numPileupBins 60 \
+    Muon.pileup.root 
+fi
 popd
+
+if [ ! -f mcPileup.root ]; then
+  ./mcPileupCalc.py > meta/pileupReweight.py
+fi
