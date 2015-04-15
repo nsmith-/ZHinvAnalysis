@@ -59,7 +59,12 @@ if not os.path.exists('preselection_plots.root') :
 
             drawCut = ''
             if info['type'] == 'mc' :
-                drawCut = pileupReweightStrings[channel]
+                drawCut = pileupReweightStrings['%s_%s_reweight_hist' % (name, channel)]
+                proof.DrawSelect(proof_path, 'nTruePU >> +%s_nTruePU_hist(60, 0, 60)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
+                hist = proof.GetOutputList().FindObject(hist_prefix+'_nTruePU_hist')
+                hist.Scale(1. / hist.Integral())
+                objectsToSave.append(hist)
+
             proof.DrawSelect(proof_path, 'Mass >> +%s_Mass_hist(100, 40, 250)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_Mass_hist'))
             proof.DrawSelect(proof_path, 'Pt >> +%s_Pt_hist(100, 0, 500)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)

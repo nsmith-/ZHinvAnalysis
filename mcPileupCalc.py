@@ -101,14 +101,28 @@ c.Print('plots/pileup/data_pileups.pdf')
 
 # ok, this is probably the stupidest thing ever
 # but it works for now
-print "pileupReweightStrings = {}"
-for channel in channels :
-    pileupHist = stack.GetHists().FindObject('pileup_%s'%channel)
+def reweightString(histogram) :
     reweightBins = []
-    pileupHist.Divide(PUS10_hist)
     for i in range(60) :
-        pu_lessthan = pileupHist.GetBinLowEdge(i+2)
-        pu_weight = pileupHist.GetBinContent(i+1)
+        pu_lessthan = histogram.GetBinLowEdge(i+2)
+        pu_weight = histogram.GetBinContent(i+1)
         reweightBins.append('(nTruePU<%f)?%f' % (pu_lessthan, pu_weight))
     reweightBins.append('1.')
-    print "pileupReweightStrings['%s'] = '(%s)'" % (channel, ':'.join(reweightBins))
+    return '(%s)' % ':'.join(reweightBins)
+
+print "pileupReweightStrings = {}"
+for channel in channels :
+    pileupHist = stack.GetHists().FindObject('pileup_%s' % channel)
+    for name, info in meta.ZHinv_datasets.iteritems() :
+        if info['type'] != 'mc' :
+            continue
+        reweightHistName = '%s_%s_reweight_hist' % (name, channel)
+        reweightHist = pileupHist.Clone(reweightHistName)
+        mcHistName = '_'.join([name, data_tier, channel, 'nTruePU', 'hist'])
+        mcHist = mcPileupFile.Get(mcHistName)
+        reweightHist.Divide(mcHist)
+        print "pileupReweightStrings['%s'] = '(%s)'" % (reweightHistName, reweightString(reweightHist))
+    reweightHistName = 'nominal_%s_reweight_hist' % channel
+    reweightHist = pileupHist.Clone(reweightHistName)
+    reweightHist.Divide(PUS10_hist)
+    print "pileupReweightStrings['%s'] = '(%s)'" % (reweightHistName, reweightString(reweightHist))
