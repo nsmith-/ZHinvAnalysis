@@ -12,7 +12,7 @@ def setProofChainWeight(shortname, cross_section, lumi) :
         ntuple_eventcount = int(evtcount.read())
     weight = lumi*cross_section/ntuple_eventcount
     proof.SetParameter('PROOF_ChainWeight', weight)
-    print "Weight for dataset %s = %f" % (shortname, weight)
+    print "Weight for dataset %s set to %f" % (shortname, weight)
 
 channels = ['ee', 'mm']
 
@@ -65,7 +65,10 @@ if not os.path.exists('preselection_plots.root') :
                 hist.Scale(1. / hist.Integral())
                 objectsToSave.append(hist)
 
-            proof.DrawSelect(proof_path, 'Mass >> +%s_Mass_hist(100, 40, 250)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
+            mass_string = 'Mass'
+            if channel == 'mm' :
+                mass_string = 'sqrt(pow(m1PtRochCor2012*cosh(m1EtaRochCor2012)+m2PtRochCor2012*cosh(m2EtaRochCor2012),2) - pow(m1PtRochCor2012*sinh(m1EtaRochCor2012)+m2PtRochCor2012*sinh(m2EtaRochCor2012),2) - pow(m1PtRochCor2012,2) - pow(m2PtRochCor2012,2) - 2*m1PtRochCor2012*m2PtRochCor2012*cos(m1PhiRochCor2012-m2PhiRochCor2012))'
+            proof.DrawSelect(proof_path, mass_string+' >> +%s_Mass_hist(100, 40, 250)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_Mass_hist'))
             proof.DrawSelect(proof_path, 'Pt >> +%s_Pt_hist(100, 0, 500)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_Pt_hist'))

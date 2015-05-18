@@ -14,6 +14,7 @@ for dataset in `cat meta/sample_shortnames.txt`; do
   if [ ! -f datasets/${dataset}.root ]; then
     ./skim_zh_ntuples.py ${dataset} 2>/dev/null &
   fi
+  # This needs to happen after preselection_plots.py !
   if [ ! -f datasets/${dataset}.das_eventcount.txt ]; then
     ./read_das_eventcount.py ${dataset} > datasets/${dataset}.das_eventcount.txt
   fi

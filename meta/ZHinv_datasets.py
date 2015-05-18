@@ -41,12 +41,12 @@ ZHinv_datasets = {
     "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
         "name": "/DYJetsToLL_M-10To50filter_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
         "cross_section" : 860.5,
-        "plotgroup" : "ZToLL_low"
-    }, 
-    "ZG_Inclusive_8TeV-madgraph": {
-        "name": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
-        "cross_section" : 123.9,
         "plotgroup" : "ZToLL"
+    }, 
+    "ZG_Inclusive_8TeV-madgraph_v2": {
+        "name": "/ZG_Inclusive_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+        "cross_section" : 123.9,
+        "plotgroup" : "ZToLL_fsr"
     }, 
 
     # double top

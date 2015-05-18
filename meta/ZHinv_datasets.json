@@ -290,6 +290,37 @@
         "cross_section": 0.208, 
         "type": "mc"
     }, 
+    "ZG_Inclusive_8TeV-madgraph_v2": {
+        "matching_pat": {
+            "ZG_Inclusive_v2": {
+                "datadef": {
+                    "analyses": [
+                        ""
+                    ],
+                    "xsec": 123.9,
+                    "datasetpath": "/ZG_Inclusive_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+                    "calibrationTarget": "Summer12",
+                    "pu": "S10"
+                },
+                "locations": [
+                    {
+                        "dir": "/hdfs/store/user/nsmith/ZG_Inclusive_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015"
+                    }
+                ]
+            }
+        },
+        "dbs_info": {
+            "nfiles": 544, 
+            "nevents": 6321549, 
+            "nblocks": 2, 
+            "nlumis": 33259, 
+            "file_size": 2067379920024
+        }, 
+        "cross_section": 123.9, 
+        "plotgroup": "ZToLL_fsr", 
+        "type": "mc", 
+        "name": "/ZG_Inclusive_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
+    }, 
     "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
         "matching_pat": {
             "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
@@ -551,46 +582,6 @@
             "file_size": 81282961777
         }, 
         "cross_section": 0.232, 
-        "type": "mc"
-    }, 
-    "ZG_Inclusive_8TeV-madgraph": {
-        "matching_pat": {
-            "ZG_Inclusive": {
-                "datadef": {
-                    "analyses": [
-                        ""
-                    ], 
-                    "xsec": 123.9, 
-                    "datasetpath": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
-                    "calibrationTarget": "Summer12", 
-                    "pu": "S10"
-                }, 
-                "locations": [
-                    {
-                        "possible PAT config": {
-                            "source": "/afs/hep.wisc.edu/cms/nsmith/CMSSW_5_3_14/src/FinalStateAnalysis/PatTools/test/4838d2f4b56e4bdeb77d1391e9839891.json", 
-                            "creator": "nsmith", 
-                            "jobid": "ZHinv2015", 
-                            "production date": "Wed Feb  4 21:05:50 2015", 
-                            "FSA Version": "bf42a1b", 
-                            "PAT Location": "/hdfs/store/user/nsmith/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015", 
-                            "DBS Name": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
-                        }, 
-                        "dir": "/hdfs/store/user/nsmith/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/ZHinv2015"
-                    }
-                ]
-            }
-        }, 
-        "name": "/ZG_Inclusive_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM", 
-        "plotgroup": "ZToLL", 
-        "dbs_info": {
-            "nfiles": 271, 
-            "nevents": 3169111, 
-            "nblocks": 2, 
-            "nlumis": 16667, 
-            "file_size": 1039225058483
-        }, 
-        "cross_section": 123.9, 
         "type": "mc"
     }, 
     "WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola": {
