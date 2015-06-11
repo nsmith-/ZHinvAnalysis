@@ -11,16 +11,10 @@ for dataset in `cat meta/sample_shortnames.txt`; do
   if [ ! -f datasets/${dataset}.pattuples.txt ]; then
     find /nfs_scratch/nsmith/ZHinvNtuples/${dataset}/submit -type f -name submit -exec sed -n 's/^Arguments *= "\(.*\)"$/\1/p' '{}' \; > datasets/${dataset}.pattuples.txt
   fi
-  if [ ! -f datasets/${dataset}.root ]; then
-    ./skim_zh_ntuples.py ${dataset} 2>/dev/null &
-  fi
-  # This needs to happen after preselection_plots.py !
   if [ ! -f datasets/${dataset}.das_eventcount.txt ]; then
     ./read_das_eventcount.py ${dataset} > datasets/${dataset}.das_eventcount.txt
   fi
-  while [[ `jobs|wc -l` -gt 7 ]]; do sleep 30; done;
 done
-wait
 
 # Lumi for data datasets
 pushd meta
@@ -57,3 +51,19 @@ popd
 if [ ! -f mcPileup.root ]; then
   ./mcPileupCalc.py > meta/pileupReweight.py
 fi
+
+# takes a few hours
+./deduplicate.py
+
+./register_proof_datasets.py
+
+# this sets up disambiguation for the skim
+./preselection_plots.py
+
+for dataset in `cat meta/sample_shortnames.txt`; do
+  if [ ! -f datasets/${dataset}.root ]; then
+    ./skim_zh_ntuples.py ${dataset} 2>/dev/null &
+  fi
+  while [[ `jobs|wc -l` -gt 7 ]]; do sleep 30; done;
+done
+wait

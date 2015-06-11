@@ -4,7 +4,7 @@ ROOT.gROOT.SetBatch(True)
 import meta
 
 data_tier = 'full'
-reRegister = False
+reRegister = True
 
 ROOT.TProof.Open('workers=6')
 # TProof::Open returns pointer to proof-lite and messes with pyroot's

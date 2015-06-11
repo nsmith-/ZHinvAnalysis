@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 import ROOT
 import meta
+import os
 
 for name, info in meta.ZHinv_datasets.iteritems() :
     shortname = info['matching_pat'].keys()[0]
+    if os.path.exists("datasets/"+shortname+".ntuple_eventcount.txt") :
+        continue
     ntuple_total = 0
     with open('datasets/%s.ntuples.txt' % shortname) as filelist :
         for line in filelist :

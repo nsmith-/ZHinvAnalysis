@@ -22,7 +22,7 @@
                             "PAT Location": "/hdfs/store/user/tperry/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1", 
                             "DBS Name": "/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
                         }, 
-                        "dir": "/hdfs/store/user/tperry/W3JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1"
+                        "dir": "/hdfs/store/user/tperry/W3Jet_p2_l-skimpattuple_cfg"
                     }
                 ]
             }
@@ -95,7 +95,7 @@
                             "PAT Location": "/hdfs/store/user/tperry/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATTuples_V1", 
                             "DBS Name": "/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM"
                         }, 
-                        "dir": "/hdfs/store/user/tperry/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM/Fall2014PATTuples_V1"
+                        "dir": "/hdfs/store/user/tperry/W4Jet_p2_l-skimpattuple_cfg"
                     }
                 ]
             }
@@ -458,7 +458,7 @@
                             "PAT Location": "/hdfs/store/user/tperry/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1", 
                             "DBS Name": "/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
                         }, 
-                        "dir": "/hdfs/store/user/tperry/W2JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1"
+                        "dir": "/hdfs/store/user/tperry/W2Jet_p2_l-skimpattuple_cfg"
                     }
                 ]
             }
@@ -810,7 +810,7 @@
                             "PAT Location": "/hdfs/store/user/tperry/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1", 
                             "DBS Name": "/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM"
                         }, 
-                        "dir": "/hdfs/store/user/tperry/W1JetsToLNu_TuneZ2Star_8TeV-madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM/Fall2014PATTuples_V1"
+                        "dir": "/hdfs/store/user/tperry/W1Jet_p2_l-skimpattuple_cfg"
                     }
                 ]
             }

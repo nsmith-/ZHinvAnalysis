@@ -12,10 +12,8 @@ Output TTrees are skimmed using baseline selection described in AN2012-123 to pr
 ### Skim Process:
 * Make metadata (described in `meta/README.md`)
 * Run `run_skim.sh` to create the baseline selection tuple, will take a while
-* Run `deduplicate.py` to remove any event double-counting from {Single,Double}Mu samples.
 
 ### Plots after baseline selection:
-* Run `read_fsa_eventcount.py` to set up dataset weights
 * Dilepton mass
 * Dilepton pT
 * (todo) Jet multiplicity
