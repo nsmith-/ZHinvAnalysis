@@ -58,7 +58,9 @@ def stackUp(**kwargs) :
         elif 'trees' in kwargs :
             if dataname not in kwargs['trees'] :
                 continue
-            kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut)
+            returnCode = kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut)
+            if returnCode < 0 :
+                print 'Draw command failed on dataname %s, command: %s' % (dataname, kwargs['variable']+">>+"+hname)
         if info['type'] == 'mc' and not 'signal' in info.get('flags',[]) :
             tostack[plotgroup] = h
         elif info['type'] == 'data' :
@@ -110,6 +112,7 @@ def stackUp(**kwargs) :
     legend.SetName(name+"_legend")
     legend.SetNColumns(3)
     legend.SetColumnSeparation(0.1)
+    legend.SetFillColorAlpha(ROOT.kWhite, 0)
     legend.Draw()
 
     # Transfer object ownership to canvas
