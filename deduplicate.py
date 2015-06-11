@@ -67,8 +67,12 @@ if __name__ == '__main__' :
         'data_DoubleMuParked_Run2012D_22Jan2013_v1'
     ]
 
-    for i in range(4) :
+    def do(i) :
         if not os.path.exists('datasets/%s.duplicates.pickle' % singlemu[i]) :
             deduplicate(singlemu[i], doublemu[i], 'mm/final/Ntuple')
         if not os.path.exists('datasets/%s.duplicates.root' % singlemu[i]) :
             makeEntryList(singlemu[i], 'mm/final/Ntuple')
+
+    import multiprocessing
+    pool = multiprocessing.Pool(4)
+    pool.map(do, range(4))
