@@ -74,6 +74,8 @@ if not os.path.exists('preselection_plots.root') :
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_Pt_hist'))
             proof.DrawSelect(proof_path, 'reducedMET >> +%s_reducedMET_hist(100, 0, 500)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_reducedMET_hist'))
+            proof.DrawSelect(proof_path, 'type1_pfMetEt >> +%s_pfMetEt_hist(100, 0, 500)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
+            objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_pfMetEt_hist'))
             proof.DrawSelect(proof_path, 'nvtx >> +%s_nvtx_hist(50, 1, 50)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_nvtx_hist'))
 
@@ -122,6 +124,19 @@ plotConfigs.append({
     'ymin' : 1e-1,
     'ymax' : 1e7,
     'xtitle' : "Reduced #slash{E}_{T}",
+    'ytitle' : "Events / 5 GeV"
+    })
+
+plotConfigs.append({
+    'name' : "pfMetEt",
+    'bins' : 100,
+    'xmin' : 0,
+    'xmax' : 500,
+    'variable' : "type1_pfMetEt",
+    'logY' : True,
+    'ymin' : 1e-1,
+    'ymax' : 1e7,
+    'xtitle' : "PF #slash{E}_{T}",
     'ytitle' : "Events / 5 GeV"
     })
 
