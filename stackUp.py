@@ -49,8 +49,6 @@ def stackUp(**kwargs) :
         hname = h.GetName()
         if 'plotfile' in kwargs :
             hToAdd = kwargs['plotfile'].Get('%s_%s_%s_hist' % (dataname, kwargs['proof_prefix'], name))
-            if 'ZG_Inclusive' in dataname :
-                hToAdd.Scale(1e-3)
             if hToAdd != None :
                 h.Add(hToAdd)
             else :

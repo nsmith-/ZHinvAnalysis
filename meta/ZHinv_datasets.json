@@ -157,7 +157,7 @@
     }, 
     "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball": {
         "matching_pat": {
-            "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball": {
+            "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball-FSRVETO": {
                 "datadef": {
                     "analyses": [
                         "HTT", 
