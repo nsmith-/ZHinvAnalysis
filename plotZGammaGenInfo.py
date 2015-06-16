@@ -16,6 +16,15 @@ labelGenParticles = ("genParticles")
 def lorentz(particle) :
     return ROOT.TLorentzVector(particle.px(), particle.py(), particle.pz(), particle.energy())
 
+def searchTree(particle, condition) :
+    for i in range(particle.numberOfDaughters()) :
+        daughter = particle.daughter(i)
+        if condition(daughter) :
+            return daughter
+        else :
+            return searchTree(daughter, condition)
+    print "If here, we failed to find a final state lepton! Where'd it go?!"
+
 hdR = ROOT.TH1F("deltaR", ";#DeltaR #gamma-l;Counts", 50, 0, 4)
 hpt = ROOT.TH1F("pt", ";#gamma p_{T};Counts", 50, 0, 50)
 
@@ -28,8 +37,9 @@ for i,event in enumerate(events):
     for particle in particles :
         if particle.status() == 1 and particle.pdgId() == 22 \
                 and abs(particle.mother(0).pdgId()) in [11,13,15] \
-                and particle.mother(0).mother(0).pdgId() == particle.mother(0).pdgId() :
-            dR = lorentz(particle).DeltaR(lorentz(particle.mother(0)))
+                and particle.mother(0).mother(0).pdgId() in [22,23,particle.mother(0).pdgId()] :
+            finalElectron = searchTree(particle.mother(0), lambda p : abs(p.pdgId()) in [11,13,15] and p.status() == 1)
+            dR = lorentz(particle).DeltaR(lorentz(finalElectron))
             hdR.Fill(dR)
             pt = particle.pt()
             hpt.Fill(pt)
