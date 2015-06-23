@@ -52,7 +52,7 @@ ZHinv_datasets = {
     # double top
     "TTJets_FullLeptMGDecays_8TeV-madgraph-tauola": {
         "name": "/TTJets_FullLeptMGDecays_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7C-v2/AODSIM",
-        "cross_section" : 23.89,
+        "cross_section" : 247.7*0.324*0.324,
         "plotgroup" : "ttbar"
     }, 
     "TTWJets_8TeV-madgraph": {
@@ -62,7 +62,7 @@ ZHinv_datasets = {
     }, 
     "TTZJets_8TeV-madgraph_v2": {
         "name": "/TTZJets_8TeV-madgraph_v2/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
-        "cross_section" : 0.208,
+        "cross_section" : 0.2057,
         "plotgroup" : "ttbar"
     }, 
 
@@ -83,19 +83,19 @@ ZHinv_datasets = {
     # VV backgrounds
     "WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola": {
         "name": "/WWJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
-        "cross_section" : 5.995,
+        "cross_section" : 56*(.1071+.1063+.1138)**2,
         "plotgroup" : "WW"
     }, 
     "WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola": {
         "name": "/WZJetsTo3LNu_TuneZ2_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
-        "cross_section" : 1.057,
+        "cross_section" : (21+12.6)*(.1071+.1063+.1138)*(.03363+.03366+.03370),
         "plotgroup" : "WZ"
     }, 
 
     # Irred. background
     "ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola": {
         "name": "/ZZJetsTo2L2Nu_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v3/AODSIM",
-        "cross_section" : .380,
+        "cross_section" : 17*(.03363+.03366+.03370)*.2,
         "plotgroup" : "ZZ"
     }, 
 
