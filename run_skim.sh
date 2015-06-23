@@ -16,6 +16,8 @@ for dataset in `cat meta/sample_shortnames.txt`; do
   fi
 done
 
+./read_fsa_eventcount.py
+
 # Lumi for data datasets
 pushd meta
 if [ ! -f DoubleElectron.lumi.txt ]; then

@@ -1,10 +1,11 @@
 #!/usr/bin/env python
-import os
+import os, pickle
 import ROOT
 ROOT.gROOT.SetBatch(True)
 import meta
 from stackUp import stackUp
 from splitCanvas import splitCanvas
+from muonEfficiency import buildMuonEfficiencyRescaleString
 from meta.pileupReweight import pileupReweightStrings
 
 def setProofChainWeight(shortname, cross_section, lumi) :
@@ -40,12 +41,14 @@ if not os.path.exists('preselection_plots.root') :
             cuts = []
             if channel == 'ee' :
                 cuts += meta.ecuts
-                if info['type'] == 'data' :
-                    cuts += ['doubleETightPass']
+                cuts += ['doubleETightPass']
             elif channel == 'mm' :
                 cuts += meta.mcuts
-                if info['type'] == 'data' :
-                    cuts += ['doubleMuZHinvPass']
+                cuts += ['doubleMuZHinvPass']
+            
+            infostr = "Starting processing of channel %s for dataset %s" % (channel, shortname)
+            print infostr
+            print '-'*len(infostr)
 
             disambiguator = ROOT.disambiguateFinalStates()
             proof.Process(proof_path, disambiguator, '&&'.join(cuts))
@@ -60,11 +63,15 @@ if not os.path.exists('preselection_plots.root') :
             drawCut = ''
             if info['type'] == 'mc' :
                 drawCut = pileupReweightStrings['%s_%s_reweight_hist' % (name, channel)]
-                proof.DrawSelect(proof_path, 'nTruePU >> +%s_nTruePU_hist(60, 0, 60)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
-                hist = proof.GetOutputList().FindObject(hist_prefix+'_nTruePU_hist')
-                hist.Scale(1. / hist.Integral())
-                objectsToSave.append(hist)
+                # MC pileup correction closure test
+                # proof.DrawSelect(proof_path, 'nTruePU >> +%s_nTruePU_hist(60, 0, 60)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
+                # hist = proof.GetOutputList().FindObject(hist_prefix+'_nTruePU_hist')
+                # hist.Scale(1. / hist.Integral())
+                # objectsToSave.append(hist)
+                if channel == 'mm' :
+                    drawCut += '*'+buildMuonEfficiencyRescaleString()
 
+            print drawCut
             mass_string = 'Mass'
             if channel == 'mm' :
                 mass_string = 'sqrt(pow(m1PtRochCor2012*cosh(m1EtaRochCor2012)+m2PtRochCor2012*cosh(m2EtaRochCor2012),2) - pow(m1PtRochCor2012*sinh(m1EtaRochCor2012)+m2PtRochCor2012*sinh(m2EtaRochCor2012),2) - pow(m1PtRochCor2012,2) - pow(m2PtRochCor2012,2) - 2*m1PtRochCor2012*m2PtRochCor2012*cos(m1PhiRochCor2012-m2PhiRochCor2012))'

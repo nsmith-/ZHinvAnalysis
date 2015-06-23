@@ -292,7 +292,7 @@
     }, 
     "ZG_Inclusive_8TeV-madgraph_v2": {
         "matching_pat": {
-            "ZG_Inclusive_v2": {
+            "ZG_Inclusive_v2-FSRVETO": {
                 "datadef": {
                     "analyses": [
                         ""
@@ -323,7 +323,7 @@
     }, 
     "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
         "matching_pat": {
-            "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
+            "DYJetsToLL_M-10To50filter_8TeV-madgraph-FSRVETO": {
                 "datadef": {
                     "analyses": [
                         "ZZ"

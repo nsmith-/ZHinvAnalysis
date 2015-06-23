@@ -13,7 +13,7 @@ def getDatasetTrees(tuplePath, datasets, printInfo=True) :
             tree.Add(filename)
         else :
             tree = buildChain("datasets/"+shortname+".ntuples.txt", tuplePath)
-        with open("datasets/"+shortname+".das_eventcount.txt") as evtcount :
+        with open("datasets/"+shortname+".ntuple_eventcount.txt") as evtcount :
             ntuple_eventcount = int(evtcount.read())
         if datasets[name]['type'] == 'mc' :
             # Adjust weight
