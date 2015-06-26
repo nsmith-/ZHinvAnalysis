@@ -9,7 +9,7 @@ from muonEfficiency import buildMuonEfficiencyRescaleString
 from meta.pileupReweight import pileupReweightStrings
 
 def setProofChainWeight(shortname, cross_section, lumi) :
-    with open("datasets/"+shortname+".das_eventcount.txt") as evtcount :
+    with open("datasets/"+shortname+".ntuple_eventcount.txt") as evtcount :
         ntuple_eventcount = int(evtcount.read())
     weight = lumi*cross_section/ntuple_eventcount
     proof.SetParameter('PROOF_ChainWeight', weight)
@@ -77,7 +77,10 @@ if not os.path.exists('preselection_plots.root') :
                 mass_string = 'sqrt(pow(m1PtRochCor2012*cosh(m1EtaRochCor2012)+m2PtRochCor2012*cosh(m2EtaRochCor2012),2) - pow(m1PtRochCor2012*sinh(m1EtaRochCor2012)+m2PtRochCor2012*sinh(m2EtaRochCor2012),2) - pow(m1PtRochCor2012,2) - pow(m2PtRochCor2012,2) - 2*m1PtRochCor2012*m2PtRochCor2012*cos(m1PhiRochCor2012-m2PhiRochCor2012))'
             proof.DrawSelect(proof_path, mass_string+' >> +%s_Mass_hist(100, 40, 250)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_Mass_hist'))
-            proof.DrawSelect(proof_path, 'Pt >> +%s_Pt_hist(100, 0, 500)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
+            pt_string = 'Pt'
+            if channel == 'mm' :
+                pt_string = 'sqrt(pow(m1PtRochCor2012,2) + pow(m2PtRochCor2012,2) + 2*m1PtRochCor2012*m2PtRochCor2012*cos(m1PhiRochCor2012-m2PhiRochCor2012))'
+            proof.DrawSelect(proof_path, pt_string+' >> +%s_Pt_hist(100, 0, 500)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_Pt_hist'))
             proof.DrawSelect(proof_path, 'reducedMET >> +%s_reducedMET_hist(100, 0, 500)'%hist_prefix, drawCut, 'goff', -1, 0, entryList)
             objectsToSave.append(proof.GetOutputList().FindObject(hist_prefix+'_reducedMET_hist'))
