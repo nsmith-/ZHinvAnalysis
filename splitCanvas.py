@@ -54,14 +54,20 @@ def splitCanvas(oldcanvas) :
     data = stackPad.GetPrimitive(name+'_data_hist')
     stack = stackPad.GetPrimitive(name+'_hmcstack')
     dataOverSumMC = data.Clone(name+'_dataOverSumMC_hist')
+    sumMCErrors = sumMC.Clone(name+'_sumMCErrors_hist')
     dataOverSumMC.Divide(sumMC)
+    for i in range(data.GetNbinsX()) :
+        dataOverSumMC.SetBinError(i, data.GetBinError(i)/max(data.GetBinContent(i),1))
+        sumMCErrors.SetBinError(i, sumMCErrors.GetBinError(i)/max(sumMCErrors.GetBinContent(i),1))
+        sumMCErrors.SetBinContent(i, 1.)
     dataOverSumMC.GetXaxis().SetTitle(stack.GetXaxis().GetTitle())
     dataOverSumMC.GetYaxis().SetTitle('Data / #Sigma MC')
     dataOverSumMC.GetYaxis().CenterTitle()
-    dataOverSumMC.GetYaxis().SetRangeUser(.4, 1.6)
+    dataOverSumMC.GetYaxis().SetRangeUser(.8, 1.2)
     dataOverSumMC.GetYaxis().SetNdivisions(305)
     dataOverSumMC.GetYaxis().SetTitleSize(dataOverSumMC.GetYaxis().GetTitleSize()*0.6)
     dataOverSumMC.Draw()
+    sumMCErrors.Draw("E2 same")
     line = ROOT.TLine(dataOverSumMC.GetBinLowEdge(1), 1, dataOverSumMC.GetBinLowEdge(dataOverSumMC.GetNbinsX()+1), 1)
     line.SetLineStyle(ROOT.kDotted)
     line.Draw()
@@ -72,7 +78,7 @@ def splitCanvas(oldcanvas) :
     ratioPad.Modified()
     canvas.Update()
 
-    for item in [stackPad, ratioPad, dataOverSumMC, line] :
+    for item in [stackPad, ratioPad, dataOverSumMC, sumMCErrors, line] :
         ROOT.SetOwnership(item, False)
     return canvas
 
