@@ -15,45 +15,28 @@ void disambiguateFinalStates::SlaveBegin(TTree * /*tree*/)
 
 Bool_t disambiguateFinalStates::Process(Long64_t entry)
 {
-  b_Mass->GetEntry(entry);
   b_evt->GetEntry(entry);
   b_run->GetEntry(entry);
 
-  if ( !fPostInit && !(run == fCurrentRun && evt == fCurrentEvt) )
+  if ( !(run == fCurrentRun && evt == fCurrentEvt) )
   {
-    Long64_t bestEntry = -1L;
-    Float_t lowestDiscriminant = 1e10;
-    for (size_t i=0; i<fEntriesToCompare.size(); ++i)
-    {
-      if ( lowestDiscriminant > fEntryDiscriminants[i] )
-      {
-        lowestDiscriminant = fEntryDiscriminants[i];
-        bestEntry = fEntriesToCompare[i];
-      }
-    }
-
-    if ( bestEntry > 0 )
-      fBestCandidateEntryList->Enter(bestEntry);
-
-    fEntriesToCompare.clear();
-    fEntryDiscriminants.clear();
-  }
-  else if ( fPostInit )
-  {
-    fPostInit = false;
+    findBestEntry();
   }
 
   fCurrentRun = run;
   fCurrentEvt = evt;
   
-  if ( fCutFormula && fCutFormula->EvalInstance() != 1. )
+  if ( fCutFormula && fCutFormula->EvalInstance() > 0. )
   {
-    return kFALSE;
+    b_Mass->GetEntry(entry);
+    Float_t discriminant = fabs(Mass-91.);
+    fEntriesToCompare.push_back(entry);
+    fEntryDiscriminants.push_back(discriminant);
   }
 
-  Float_t discriminant = fabs(Mass-91.);
-  fEntriesToCompare.push_back(entry);
-  fEntryDiscriminants.push_back(discriminant);
+  if ( entry == fChain->GetEntries()-1 ) {
+    findBestEntry();
+  }
 
   return kTRUE;
 }
@@ -67,4 +50,26 @@ void disambiguateFinalStates::SlaveTerminate()
 
 void disambiguateFinalStates::Terminate()
 {
+}
+
+void disambiguateFinalStates::findBestEntry()
+{
+  Long64_t bestEntry = -1L;
+  Float_t lowestDiscriminant = 1e100;
+  for (size_t i=0; i<fEntriesToCompare.size(); ++i)
+  {
+    if ( lowestDiscriminant > fEntryDiscriminants[i] )
+    {
+      lowestDiscriminant = fEntryDiscriminants[i];
+      bestEntry = fEntriesToCompare[i];
+    }
+  }
+
+  if ( bestEntry > 0 )
+  {
+    fBestCandidateEntryList->Enter(bestEntry);
+  }
+
+  fEntriesToCompare.clear();
+  fEntryDiscriminants.clear();
 }

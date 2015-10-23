@@ -24,7 +24,7 @@ public :
 
   TEntryList     *fBestCandidateEntryList;
 
-  disambiguateFinalStates(TTree * /*tree*/ =0) : fChain(0), fBestCandidateEntryList(0), fCutFormula(0) { }
+  disambiguateFinalStates(TTree * /*tree*/ =0) : fChain(0), fBestCandidateEntryList(0), fCutFormula(0), fCurrentRun(-1), fCurrentEvt(-1) { }
   virtual ~disambiguateFinalStates() { SafeDelete(fBestCandidateEntryList); SafeDelete(fCutFormula); }
   virtual Int_t   Version() const { return 2; }
   virtual void    Begin(TTree *tree);
@@ -43,7 +43,7 @@ public :
   ClassDef(disambiguateFinalStates,0);
 
 private :
-  bool  fPostInit;
+  void findBestEntry();
   Int_t fCurrentRun;
   Int_t fCurrentEvt;
   std::vector<Long64_t> fEntriesToCompare;
@@ -66,8 +66,6 @@ void disambiguateFinalStates::Init(TTree *tree)
   fCutFormula = new TTreeFormula("CutFormula", fOption, fChain);
   fCutFormula->SetQuickLoad(kTRUE);
   if (!fCutFormula->GetNdim()) { delete fCutFormula; fCutFormula = 0; }
-
-  fPostInit = true;
 }
 
 Bool_t disambiguateFinalStates::Notify()
