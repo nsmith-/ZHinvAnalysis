@@ -23,11 +23,19 @@ def mergeWithCuts(treeName, fileNames, selections, outFile, entryList=None) :
         cutInfo.GetXaxis().SetBinLabel(i+1, labels[i])
     cutInfo.Write()
 
-baseline = [
-    "abs(Mass-91)<25",
-    "Pt>30",
-    "reducedMET>50"
+mass_string = 'sqrt(pow(m1PtRochCor2012*cosh(m1EtaRochCor2012)+m2PtRochCor2012*cosh(m2EtaRochCor2012),2) - pow(m1PtRochCor2012*sinh(m1EtaRochCor2012)+m2PtRochCor2012*sinh(m2EtaRochCor2012),2) - pow(m1PtRochCor2012,2) - pow(m2PtRochCor2012,2) - 2*m1PtRochCor2012*m2PtRochCor2012*cos(m1PhiRochCor2012-m2PhiRochCor2012))'
+
+cuts = meta.mcuts
+cuts += ['doubleMuZHinvPass']
+cuts += [
+    "abs(%s-91)<10" % mass_string,
+    "Pt>50",
+    "jetVeto30 < 2",
+    "muGlbIsoVetoPt10+eVetoCBIDLoose==0",
+    "bjetCSVVetoZHinv==0",
 ]
+baseline = []
+print 'Using EntryList for CopyTree'
 
 shortname = sys.argv[1]
 inFiles = []
@@ -38,15 +46,11 @@ with open('datasets/%s.ntuples.txt' % shortname) as inList :
 
 outfile = ROOT.TFile('datasets/%s.root' % shortname, "recreate")
 
-entryList_ee = None
 entryList_mm = None
 if os.path.exists('preselection_plots.root') :
     f = ROOT.TFile.Open('preselection_plots.root')
-    entryList_ee = f.Get('%s_%s_preselection' % (shortname, 'ee'))
-    entryList_mm = f.Get('%s_%s_preselection' % (shortname, 'mm'))
+    entryList_mm = f.Get('%s_%s_baseline' % (shortname, 'mm'))
 
-mergeWithCuts("ee/final/Ntuple", inFiles, baseline, outfile, entryList_ee)
-print "Finished copying ee tree for " + shortname
 mergeWithCuts("mm/final/Ntuple", inFiles, baseline, outfile, entryList_mm)
 print "Finished copying mm tree for " + shortname
 

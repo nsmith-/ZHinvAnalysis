@@ -157,7 +157,7 @@
     }, 
     "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball": {
         "matching_pat": {
-            "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball-FSRVETO": {
+            "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball": {
                 "datadef": {
                     "analyses": [
                         "HTT", 
@@ -292,7 +292,7 @@
     }, 
     "ZG_Inclusive_8TeV-madgraph_v2": {
         "matching_pat": {
-            "ZG_Inclusive_v2-FSRVETO": {
+            "ZG_Inclusive_v2": {
                 "datadef": {
                     "analyses": [
                         ""
@@ -323,7 +323,7 @@
     }, 
     "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
         "matching_pat": {
-            "DYJetsToLL_M-10To50filter_8TeV-madgraph-FSRVETO": {
+            "DYJetsToLL_M-10To50filter_8TeV-madgraph": {
                 "datadef": {
                     "analyses": [
                         "ZZ"

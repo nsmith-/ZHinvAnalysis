@@ -63,9 +63,13 @@ def splitCanvas(oldcanvas) :
     dataOverSumMC.GetXaxis().SetTitle(stack.GetXaxis().GetTitle())
     dataOverSumMC.GetYaxis().SetTitle('Data / #Sigma MC')
     dataOverSumMC.GetYaxis().CenterTitle()
-    dataOverSumMC.GetYaxis().SetRangeUser(.8, 1.2)
+    dataOverSumMC.GetYaxis().SetRangeUser(.4, 1.6)
     dataOverSumMC.GetYaxis().SetNdivisions(305)
     dataOverSumMC.GetYaxis().SetTitleSize(dataOverSumMC.GetYaxis().GetTitleSize()*0.6)
+    if 'cutflow' in name :
+        for i in range(dataOverSumMC.GetXaxis().GetNbins()) :
+            dataOverSumMC.GetXaxis().SetBinLabel(i+1, stack.GetXaxis().GetBinLabel(i+1))
+        dataOverSumMC.GetXaxis().SetLabelOffset(0.02)
     dataOverSumMC.Draw()
     sumMCErrors.Draw("E2 same")
     line = ROOT.TLine(dataOverSumMC.GetBinLowEdge(1), 1, dataOverSumMC.GetBinLowEdge(dataOverSumMC.GetNbinsX()+1), 1)

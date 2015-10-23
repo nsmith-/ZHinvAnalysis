@@ -1,6 +1,9 @@
 import ROOT
 from meta.plotgroups import plotgroups, stack_order
 import meta
+from muonEfficiency import buildMuonEfficiencyRescaleString
+from meta.pileupReweight import pileupReweightStrings
+import math
 
 def stackUp(**kwargs) :
     ''' Parameters:
@@ -49,14 +52,28 @@ def stackUp(**kwargs) :
         hname = h.GetName()
         if 'plotfile' in kwargs :
             hToAdd = kwargs['plotfile'].Get('%s_%s_%s_hist' % (dataname, kwargs['proof_prefix'], name))
-            if hToAdd != None :
+            if hToAdd != None and 'cutflow' not in name :
                 h.Add(hToAdd)
+            elif hToAdd != None :
+                hCutFlow = hToAdd.Clone()
+                nbins = int(math.log(hToAdd.GetNbinsX())/math.log(2))+1
+                hCutFlow.SetBins(nbins, 0, nbins)
+                for i in range(nbins) :
+                    originalBinsToAdd = (x for x in range(2**(nbins-1)) if (x+1)%2**i==0)
+                    binValues = (hToAdd.GetBinContent(b+1) for b in originalBinsToAdd)
+                    hCutFlow.SetBinContent(i+1, sum(binValues))
+                h.Add(hCutFlow)
             else :
                 print "Can't find " + '%s_%s_hist' % (dataname, name)
         elif 'trees' in kwargs :
             if dataname not in kwargs['trees'] :
                 continue
-            returnCode = kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, cut)
+            drawCut = '(%s)' % cut if len(cut)>0 else ''
+            if info['type'] == 'mc' :
+                if 'mm' in name :
+                    drawCut = pileupReweightStrings['%s_%s_reweight_hist' % (dataname, 'mm')]
+                    drawCut += '*'+buildMuonEfficiencyRescaleString()
+            returnCode = kwargs['trees'][dataname].Draw(kwargs['variable']+">>+"+hname, drawCut)
             if returnCode < 0 :
                 print 'Draw command failed on dataname %s, command: %s' % (dataname, kwargs['variable']+">>+"+hname)
         if info['type'] == 'mc' and not 'signal' in info.get('flags',[]) :
@@ -85,6 +102,10 @@ def stackUp(**kwargs) :
     # FIXME: all hists should get titles
     mcStack.GetXaxis().SetTitle(kwargs['xtitle'])
     mcStack.GetYaxis().SetTitle(kwargs['ytitle'])
+
+    if 'xlabels' in kwargs :
+        for b, label in enumerate(kwargs['xlabels']) :
+            mcStack.GetXaxis().SetBinLabel(b+1, label)
 
     hstackErrors.Draw("E2 same")
 

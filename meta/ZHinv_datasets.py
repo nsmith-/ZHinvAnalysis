@@ -33,6 +33,11 @@ ZHinv_datasets = {
     }, 
 
     # Z -> LL samples (large!)
+    #"DYToMuMu_M-20_CT10_TuneZ2star_v2_8TeV-powheg-pythia6": {
+    #    "name": "/DYToMuMu_M-20_CT10_TuneZ2star_v2_8TeV-powheg-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+    #    "cross_section" : 1966.7,
+    #    "plotgroup" : "ZToLL"
+    #},
     "DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball": {
         "name": "/DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
         "cross_section" : 3532.8,
